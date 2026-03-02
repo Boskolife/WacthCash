@@ -105,7 +105,8 @@ export function initResponsiveVideoSources() {
       (source) => source.src.includes('-mob.') || source.src.includes('mobile'),
     );
     const desktopSource = Array.from(sources).find(
-      (source) => !source.src.includes('-mob.') && !source.src.includes('mobile'),
+      (source) =>
+        !source.src.includes('-mob.') && !source.src.includes('mobile'),
     );
 
     if (isMobile && mobileSource) {
@@ -134,54 +135,5 @@ export function initResponsiveVideoSources() {
     resizeTimeout = setTimeout(() => {
       videos.forEach(selectVideoSource);
     }, 250);
-  });
-}
-
-export function initVideoLazyLoading() {
-  const videos = document.querySelectorAll('video');
-  if (!videos.length) return;
-
-  // Set preload="none" for videos without autoplay to prevent immediate loading
-  videos.forEach((video) => {
-    const hasAutoplay = video.hasAttribute('autoplay');
-    const hasPreload = video.hasAttribute('preload');
-
-    // Only set preload="none" if video doesn't have autoplay and preload is not already set
-    if (!hasAutoplay && !hasPreload) {
-      video.setAttribute('preload', 'none');
-    }
-  });
-
-  // Use Intersection Observer for videos outside sliders
-  const observerOptions = {
-    root: null,
-    rootMargin: '50px',
-    threshold: 0.1,
-  };
-
-  const videoObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const video = entry.target;
-        // Load video when it enters viewport
-        if (video.getAttribute('preload') === 'none') {
-          video.setAttribute('preload', 'auto');
-          video.load();
-        }
-        videoObserver.unobserve(video);
-      }
-    });
-  }, observerOptions);
-
-  // Observe videos that are not in sliders and don't have autoplay
-  videos.forEach((video) => {
-    const isInSlider =
-      video.closest('.swiper-slide') || video.closest('.slider-video');
-    const hasAutoplay = video.hasAttribute('autoplay');
-
-    // Only observe videos outside sliders and without autoplay
-    if (!isInSlider && !hasAutoplay) {
-      videoObserver.observe(video);
-    }
   });
 }

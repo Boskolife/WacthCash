@@ -9,7 +9,6 @@ import 'intl-tel-input/build/css/intlTelInput.css';
 import { initContactModal, initMobileMenu } from './modules/modals.js';
 import {
   initVideoControls,
-  initVideoLazyLoading,
   removeVideoControls,
   initResponsiveVideoSources,
 } from './modules/video.js';
@@ -41,7 +40,6 @@ initContactModal();
 updateCurrentYear();
 removeVideoControls();
 initResponsiveVideoSources();
-initVideoLazyLoading();
 initVideoControls();
 initAboutBrandsSlider();
 initShopSlider();
