@@ -170,7 +170,15 @@ export function initSliderVideo() {
       const video = activeSlide.querySelector('video');
       if (video) {
         loadSliderVideo(video);
-        video.play().catch((err) => console.error('Video play failed:', err));
+        const playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch((err) => {
+            // Ignore AbortError (browser power-saving / tab hidden, etc.)
+            if (err?.name === 'AbortError') return;
+            // Log other errors for debugging
+            console.warn('Video play failed:', err);
+          });
+        }
       }
     }
 

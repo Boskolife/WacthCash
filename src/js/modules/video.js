@@ -52,7 +52,14 @@ export function initVideoControlsForContainer(container) {
 
   playBtn.addEventListener('click', () => {
     if (video.paused) {
-      video.play().catch((err) => console.error('Error playing video:', err));
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch((err) => {
+          // Ignore AbortError (browser power-saving / background tab)
+          if (err?.name === 'AbortError') return;
+          console.warn('Error playing video:', err);
+        });
+      }
     } else {
       video.pause();
     }
