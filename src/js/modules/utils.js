@@ -9,7 +9,7 @@ export function initViewportActiveSections() {
   if (!sections.length) return;
 
   const observer = new IntersectionObserver(
-    (entries) => {
+    (entries) => { 
       entries.forEach((entry) => {
         entry.target.classList.toggle('is-active', entry.isIntersecting);
       });
