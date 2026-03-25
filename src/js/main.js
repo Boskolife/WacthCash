@@ -1,6 +1,7 @@
 // Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/thumbs';
 
 // intl-tel-input styles
 import 'intl-tel-input/build/css/intlTelInput.css';
@@ -14,6 +15,7 @@ import {
 } from './modules/video.js';
 import {
   initAboutBrandsSlider,
+  initProductGallery,
   initShopSlider,
   initSliderVideo,
   initAboutShippingSlider,
@@ -42,6 +44,7 @@ removeVideoControls();
 initResponsiveVideoSources();
 initVideoControls();
 initAboutBrandsSlider();
+initProductGallery();
 initShopSlider();
 initSliderVideo();
 initAboutShippingSlider();

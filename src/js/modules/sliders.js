@@ -1,6 +1,11 @@
 import Swiper from 'swiper';
-import { Navigation, Autoplay } from 'swiper/modules';
-import { ABOUT_BRANDS_BREAKPOINT, ABOUT_SHIPPING_BREAKPOINT, SLIDER_VIDEO_BREAKPOINTS } from './constants.js';
+import { Navigation, Autoplay, Thumbs, Pagination } from 'swiper/modules';
+import 'swiper/css/pagination';
+import {
+  ABOUT_BRANDS_BREAKPOINT,
+  ABOUT_SHIPPING_BREAKPOINT,
+  SLIDER_VIDEO_BREAKPOINTS,
+} from './constants.js';
 import { loadSliderVideo, initVideoControlsForContainer } from './video.js';
 
 export function initAboutBrandsSlider() {
@@ -49,6 +54,75 @@ export function initAboutBrandsSlider() {
   handleBreakpointChange();
 }
 
+export function initProductGallery() {
+  const root = document.querySelector('.product-gallery');
+  if (!root) return;
+
+  const mainEl = root.querySelector('.product-gallery__main');
+  const mainWrapper = root.querySelector('[data-product-gallery-main-wrapper]');
+  const thumbsEl = root.querySelector('.product-gallery__thumbs');
+  if (!mainEl || !mainWrapper || !thumbsEl) return;
+
+  const thumbSlides = thumbsEl.querySelectorAll('.swiper-slide');
+  if (thumbSlides.length === 0) return;
+
+  thumbSlides.forEach((thumbSlide, index) => {
+    const thumbPicture = thumbSlide.querySelector('picture');
+    const slideEl = document.createElement('div');
+    slideEl.className = 'swiper-slide';
+
+    const inner = document.createElement('div');
+    inner.className = 'product-gallery__main-slide';
+
+    if (thumbPicture) {
+      const clone = thumbPicture.cloneNode(true);
+      clone.classList.remove('product-gallery__thumb-img');
+      clone.classList.add('product-gallery__main-img');
+
+      const img = clone.querySelector('img');
+      if (img) {
+        img.alt = `Watch product image ${index + 1} of ${thumbSlides.length}`;
+        img.loading = 'eager';
+      }
+
+      inner.appendChild(clone);
+    }
+
+    slideEl.appendChild(inner);
+    mainWrapper.appendChild(slideEl);
+  });
+
+  // Thumbs instance must exist before main; Thumbs module wires tap + slide sync.
+  const thumbsSwiper = new Swiper(thumbsEl, {
+    spaceBetween: 12,
+    slidesPerView: 6,
+    watchSlidesProgress: true,
+    breakpoints: {
+      1024: {
+        slidesPerView: 5,
+      },
+      1200: {
+        slidesPerView: 6,
+      },
+    },
+  });
+
+  new Swiper(mainEl, {
+    modules: [Thumbs, Pagination],
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    slidesPerView: 1,
+    spaceBetween: 0,
+    speed: 300,
+    thumbs: {
+      swiper: thumbsSwiper,
+    },
+
+  });
+}
+
 export function initShopSlider() {
   const sliderElement = document.querySelector('.shop__slider');
   if (!sliderElement) return;
@@ -91,7 +165,7 @@ export function initSliderVideo() {
 
     // Count total slides
     const slideCount = container.querySelectorAll('.swiper-slide').length;
-    
+
     // Create breakpoints with loopedSlides for each breakpoint where loop is enabled
     // For Swiper loop to work properly, loopedSlides must be >= slidesPerView
     // When slideCount is small (e.g., 5), we need to ensure loopedSlides is sufficient
@@ -104,32 +178,50 @@ export function initSliderVideo() {
       480: {
         ...SLIDER_VIDEO_BREAKPOINTS[480],
         // For 1.3 slidesPerView with 5 slides, need at least 5 loopedSlides
-        loopedSlides: Math.max(Math.ceil(SLIDER_VIDEO_BREAKPOINTS[480].slidesPerView), slideCount),
+        loopedSlides: Math.max(
+          Math.ceil(SLIDER_VIDEO_BREAKPOINTS[480].slidesPerView),
+          slideCount,
+        ),
       },
       576: {
         ...SLIDER_VIDEO_BREAKPOINTS[576],
         // For 1.8 slidesPerView with 5 slides, need at least 5 loopedSlides
-        loopedSlides: Math.max(Math.ceil(SLIDER_VIDEO_BREAKPOINTS[576].slidesPerView), slideCount),
+        loopedSlides: Math.max(
+          Math.ceil(SLIDER_VIDEO_BREAKPOINTS[576].slidesPerView),
+          slideCount,
+        ),
       },
       768: {
         ...SLIDER_VIDEO_BREAKPOINTS[768],
         // For 2.5 slidesPerView with 5 slides, need at least 5 loopedSlides
-        loopedSlides: Math.max(Math.ceil(SLIDER_VIDEO_BREAKPOINTS[768].slidesPerView), slideCount),
+        loopedSlides: Math.max(
+          Math.ceil(SLIDER_VIDEO_BREAKPOINTS[768].slidesPerView),
+          slideCount,
+        ),
       },
       1024: {
         ...SLIDER_VIDEO_BREAKPOINTS[1024],
         // For 3.5 slidesPerView with 5 slides, need at least 5 loopedSlides (all slides)
-        loopedSlides: Math.max(Math.ceil(SLIDER_VIDEO_BREAKPOINTS[1024].slidesPerView), slideCount),
+        loopedSlides: Math.max(
+          Math.ceil(SLIDER_VIDEO_BREAKPOINTS[1024].slidesPerView),
+          slideCount,
+        ),
       },
       1200: {
         ...SLIDER_VIDEO_BREAKPOINTS[1200],
         // For 3.8 slidesPerView with 5 slides, need at least 5 loopedSlides (all slides)
-        loopedSlides: Math.max(Math.ceil(SLIDER_VIDEO_BREAKPOINTS[1200].slidesPerView), slideCount),
+        loopedSlides: Math.max(
+          Math.ceil(SLIDER_VIDEO_BREAKPOINTS[1200].slidesPerView),
+          slideCount,
+        ),
       },
       1441: {
         ...SLIDER_VIDEO_BREAKPOINTS[1441],
         // For 3.8 slidesPerView with 5 slides, need at least 5 loopedSlides (all slides)
-        loopedSlides: Math.max(Math.ceil(SLIDER_VIDEO_BREAKPOINTS[1441].slidesPerView), slideCount),
+        loopedSlides: Math.max(
+          Math.ceil(SLIDER_VIDEO_BREAKPOINTS[1441].slidesPerView),
+          slideCount,
+        ),
       },
     };
 
@@ -218,7 +310,9 @@ export function initAboutShippingSlider() {
   function handleWheel(e) {
     if (!mediaQuery.matches) return;
 
-    const sections = document.querySelectorAll('.about-shipping[data-scroll-slider]');
+    const sections = document.querySelectorAll(
+      '.about-shipping[data-scroll-slider]',
+    );
     for (const section of sections) {
       const sliderEl = section.querySelector('.about-shipping__slider');
       const swiper = sliderEl ? swiperInstances.get(sliderEl) : null;
@@ -226,7 +320,8 @@ export function initAboutShippingSlider() {
 
       const rect = section.getBoundingClientRect();
       const inView =
-        rect.top <= HIJACK_TOP_THRESHOLD && rect.bottom >= HIJACK_BOTTOM_THRESHOLD;
+        rect.top <= HIJACK_TOP_THRESHOLD &&
+        rect.bottom >= HIJACK_BOTTOM_THRESHOLD;
       if (!inView) continue;
 
       const isFirstSlide = swiper.isBeginning;

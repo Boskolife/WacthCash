@@ -1,0 +1,360 @@
+.product {
+  padding: 80px 0;
+
+  @include media('<desktop') {
+    padding: 40px 0;
+  }
+
+  &__back-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    padding: 10px 0;
+    @include adaptive-value('margin-bottom', 50, 5, 1);
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    gap: 24px 48px;
+
+    @include media('<desktop') {
+      flex-direction: column;
+    }
+  }
+
+  &__gallery {
+    width: 60%;
+
+    @include media('<desktop') {
+      width: 100%;
+    }
+  }
+
+  .product-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    .swiper-wrapper {
+      box-sizing: border-box;
+    }
+
+    &__main {
+      position: relative;
+      width: 100%;
+      border-radius: 40px;
+      overflow: hidden;
+      background: linear-gradient(
+        180deg,
+        #a9abae 0%,
+        #eaeaea 69.71%,
+        #fcfcfd 99.04%
+      );
+
+      .swiper-pagination {
+        display: none;
+
+        @include media('<desktop') {
+          display: block;
+        }
+      }
+
+      .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        margin: 0 2px !important;
+        background: map-get($brand, 100);
+        opacity: 1 !important;
+      }
+
+      .swiper-pagination-bullet-active {
+        background: map-get($brand, 500);
+      }
+    }
+
+    &__main.swiper {
+      overflow: hidden;
+
+      @include media('<desktop') {
+        max-width: 600px;
+        aspect-ratio: 1;
+      }
+    }
+
+    &__main .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: auto;
+    }
+
+    &__main-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 1;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    &__main-img {
+      display: block;
+      width: 270px;
+      max-width: 85%;
+      height: auto;
+
+      @include media('<desktop') {
+        width: 156px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        vertical-align: middle;
+      }
+    }
+
+    &__thumbs {
+      width: 100%;
+      margin: 0;
+      overflow: hidden;
+
+      @include media('<desktop') {
+        display: none;
+      }
+    }
+
+    &__thumbs .swiper-slide {
+      width: 124px;
+      height: 124px;
+      cursor: pointer;
+      opacity: 0.55;
+      transition: opacity 0.2s ease;
+
+      &.swiper-slide-thumb-active {
+        opacity: 1;
+      }
+    }
+
+    &__thumb {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      border: 2px solid transparent;
+      border-radius: 12px;
+      overflow: hidden;
+      background: map-get($neutral, 200);
+      cursor: pointer;
+      transition: border-color 0.2s ease;
+
+      &:focus-visible {
+        outline: 2px solid map-get($brand, 500);
+        outline-offset: 2px;
+      }
+    }
+
+    &__thumbs .swiper-slide-thumb-active .product-gallery__thumb {
+      border-color: map-get($brand, 500);
+    }
+
+    &__thumb-img {
+      display: block;
+      width: 55px;
+      height: auto;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+
+    @include media('<desktop') {
+      width: 100%;
+    }
+  }
+
+  &__labels {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
+    margin-bottom: 16px;
+
+    @include media('<desktop') {
+      order: 2;
+    }
+  }
+
+  &__label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: map-get($neutral, 100);
+    padding: 8px 12px;
+    background:
+      url('/images/leather.png') center / cover no-repeat,
+      map-get($brand, 500);
+    border-radius: 999px;
+
+    @include media('<tablet') {
+      text-transform: none;
+    }
+  }
+
+  &__title {
+    color: #0b113b;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    @include px-to-percent-line-height(56px, 48px);
+    @include adaptive-value('font-size', 48, 24, 1);
+    @include adaptive-value('margin-bottom', 16, 12, 1);
+
+    @include media('<desktop') {
+      order: 1;
+    }
+  }
+
+  &__price {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    @include adaptive-value('margin-bottom', 40, 24, 1);
+
+    @include media('<desktop') {
+      order: 3;
+    }
+  }
+
+  &__price-value {
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    font-size: 20px;
+    color: #0b113b;
+  }
+
+  &__price-old {
+    font-size: 16px;
+    font-weight: 400;
+    color: #0b113b;
+    text-decoration: line-through;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    @include adaptive-value('margin-bottom', 40, 24, 1);
+
+    @include media('<desktop') {
+      order: 4;
+    }
+  }
+
+  &__action-button {
+    width: 100%;
+
+    &.add-to-cart-button {
+      width: 100%;
+    }
+
+    &.add-to-wishlist-button {
+      min-width: 48px;
+      min-height: 48px;
+      max-height: 48px;
+      max-width: 48px;
+      border-radius: 50%;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.checked {
+        background-color: map-get($brand, 500);
+        color: map-get($neutral, 100);
+      }
+    }
+  }
+
+  &__info {
+    @include media('<desktop') {
+      order: 5;
+    }
+    &-title {
+      font-size: 20px;
+      font-weight: 500;
+      color: #0b113b;
+      @include px-to-percent-line-height(24px, 20px);
+      @include adaptive-value('margin-bottom', 16, 12, 1);
+      text-transform: none;
+    }
+
+    &-description {
+      font-size: 16px;
+      font-weight: 500;
+      color: #3c435f;
+      @include px-to-percent-line-height(20px, 16px);
+      margin-bottom: 20px;
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    &-item {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 16px;
+
+      &-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: map-get($brand, 700);
+      }
+
+      &-title {
+        font-size: 16px;
+        color: #3c435f;
+      }
+    }
+  }
+
+  &__faqs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @include adaptive-value('margin-top', 40, 32, 1);
+
+    .faq__item-summary {
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
