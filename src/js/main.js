@@ -32,7 +32,7 @@ import {
   initViewportActiveSections,
   initHeroBannerAboveFooter,
 } from './modules/utils.js';
-import { initFaqAccordion } from './modules/faq.js';
+import { initFaqAccordion, initProductFaqTabs } from './modules/faq.js';
 
 // Initialize all modules
 initMobileMenu();
@@ -53,5 +53,6 @@ initSellFormProgressiveReveal();
 initFindForm();
 initYearProductionFormSteps();
 initFaqAccordion();
+initProductFaqTabs();
 initViewportActiveSections();
 initHeroBannerAboveFooter();
