@@ -18,6 +18,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 12px;
     @include adaptive-value('margin-bottom', 60, 45, 1);
   }

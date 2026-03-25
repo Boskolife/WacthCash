@@ -10,6 +10,40 @@
     }
   }
 
+  &.interested {
+    padding: 80px 0;
+    background:
+      url('/images/leather.png') center / cover no-repeat,
+      map-get($brand, 500);
+    @include adaptive-value('border-radius', 76, 40, 1);
+
+    .shop__inner {
+      max-width: 100%;
+    }
+
+    .shop__title,
+    .shop__item-title,
+    .shop__item-price {
+      color: map-get($neutral, 100);
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      border-color: map-get($neutral, 100);
+
+      svg {
+        color: map-get($neutral, 100);
+      }
+    }
+
+    .shop__description {
+      max-width: 470px;
+      width: 100%;
+      margin-inline: auto;
+      color: map-get($neutral, 500);
+    }
+  }
+
   &__inner {
     max-width: 455px;
     width: 100%;
