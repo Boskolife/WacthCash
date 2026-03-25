@@ -6,7 +6,7 @@
         <p class="product-faq__description">
             We know sending a luxury watch can feel risky — that’s why we’ve designed a zero-risk shipping process
         </p>
-        <div class="product-faq__buttons" role="tablist" aria-label="FAQ categories">
+        <div class="product-faq__buttons" role="tablist" aria-label="FAQ categories" aria-orientation="horizontal">
             <button type="button" class="product-faq__button active" role="tab" id="product-faq-tab-general"
                 aria-selected="true" aria-controls="product-faq-panel-general" tabindex="0">General</button>
             <button type="button" class="product-faq__button" role="tab" id="product-faq-tab-support"
@@ -15,7 +15,7 @@
                 aria-selected="false" aria-controls="product-faq-panel-product" tabindex="-1">Product</button>
         </div>
         <div class="product-faq__panels">
-            <div id="product-faq-panel-general" class="product-faq__panel faq__list" role="tabpanel"
+            <div id="product-faq-panel-general" class="product-faq__panel faq__list" role="tabpanel" tabindex="0"
                 aria-labelledby="product-faq-tab-general">
                 <details class="faq__item" open>
                     <summary class="faq__item-summary">
@@ -122,7 +122,7 @@
                     </div>
                 </details>
             </div>
-            <div id="product-faq-panel-support" class="product-faq__panel faq__list" role="tabpanel"
+            <div id="product-faq-panel-support" class="product-faq__panel faq__list" role="tabpanel" tabindex="0"
                 aria-labelledby="product-faq-tab-support" hidden>
                 <details class="faq__item" open>
                     <summary class="faq__item-summary">
@@ -151,7 +151,7 @@
                     </div>
                 </details>
             </div>
-            <div id="product-faq-panel-product" class="product-faq__panel faq__list" role="tabpanel"
+            <div id="product-faq-panel-product" class="product-faq__panel faq__list" role="tabpanel" tabindex="0"
                 aria-labelledby="product-faq-tab-product" hidden>
                 <details class="faq__item" open>
                     <summary class="faq__item-summary">
