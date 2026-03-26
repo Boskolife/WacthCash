@@ -1,0 +1,258 @@
+<section class="checkout">
+    <div class="container">
+        <div class="checkout__inner">
+            <div class="checkout__left-col">
+                <div class="checkout__steps">
+                    <span class="checkout__step active" id="checkout-tab-details">1. Details</span>
+                    <span class="checkout__step" id="checkout-tab-shipping">2. Shipping</span>
+                    <span class="checkout__step" id="checkout-tab-payment">3. Payment</span>
+                </div>
+                <div class="checkout__panels">
+                    <div id="checkout-panel-details" class="checkout__panel" role="tabpanel" tabindex="0"
+                        aria-labelledby="checkout-tab-details">
+                        <div class="checkout__panel-inner">
+                            <div class="checkout__panel-buttons" role="tablist" aria-label="Checkout account type">
+                                <button type="button" class="checkout__panel-button active" role="tab"
+                                    aria-selected="true" data-checkout-tab="new-customer">New Customer</button>
+                                <button type="button" class="checkout__panel-button" role="tab" aria-selected="false"
+                                    tabindex="-1" data-checkout-tab="account">I have an account</button>
+                            </div>
+                            <div class="checkout__panel-tabs">
+                                <div class="checkout__panel-tab" role="tabpanel" tabindex="0"
+                                    data-checkout-panel="new-customer">
+                                    <form class="checkout__panel-form sell__form checkout__form" novalidate>
+                                        <div class="checkout__panel-form-row">
+                                            <label class="checkout__form-label" for="checkout-form-first-name">First
+                                                Name
+                                                <input type="text" id="checkout-form-first-name"
+                                                    name="checkout-form-first-name" placeholder="Enter your first name"
+                                                    required>
+                                                <span class="form-error" aria-live="polite"></span>
+                                            </label>
+                                            <label class="checkout__form-label" for="checkout-form-last-name">Last Name
+                                                <input type="text" id="checkout-form-last-name"
+                                                    name="checkout-form-last-name" placeholder="Enter your last name"
+                                                    required>
+                                                <span class="form-error" aria-live="polite"></span>
+                                            </label>
+                                        </div>
+                                        <div class="checkout__panel-form-row">
+                                            <label class="checkout__form-label" for="checkout-form-email">Email
+                                                <input type="email" id="checkout-form-email" name="checkout-form-email"
+                                                    placeholder="Enter your email" required>
+                                                <span class="form-error" aria-live="polite"></span>
+                                            </label>
+                                            <label class="checkout__form-label" for="checkout-form-phone">Phone number
+                                                <input type="tel" id="checkout-form-phone" name="checkout-form-phone"
+                                                    placeholder="Phone Number" autocomplete="tel" required>
+                                                <span class="form-error" aria-live="polite"></span>
+                                            </label>
+                                        </div>
+                                        <label class="checkout__form-checkbox checkout__form-checkbox_round"
+                                            for="checkout-form-register">
+                                            <input class="checkout__form-checkbox-input" type="checkbox"
+                                                id="checkout-form-register" name="checkout-form-register" required>
+                                            <span class="checkout__form-checkbox-control" aria-hidden="true"></span>
+                                            <span class="checkout__form-checkbox-text">Register</span>
+                                        </label>
+                                        <button type="button" class="checkout__form-submit btn btn_primary">Proceed to
+                                            Shipping</button>
+                                    </form>
+                                </div>
+                                <div class="checkout__panel-tab" role="tabpanel" tabindex="0"
+                                    data-checkout-panel="account" hidden>
+                                    <form class="checkout__panel-form sell__form checkout__form" novalidate>
+                                        <div class="checkout__panel-form-row">
+                                            <label class="checkout__form-label" for="checkout-form-email">Email
+                                                <input type="email" id="checkout-form-email" name="checkout-form-email"
+                                                    placeholder="Enter your email" required>
+                                                <span class="form-error" aria-live="polite"></span>
+                                            </label>
+                                            <label class="checkout__form-label" for="checkout-form-password">Password
+                                                <input type="password" id="checkout-form-password"
+                                                    name="checkout-form-password" placeholder="Enter your password"
+                                                    required>
+                                                <span class="form-error" aria-live="polite"></span>
+                                            </label>
+                                        </div>
+                                        <a href="#" class="checkout__form-forgot-password">Forgot password?</a>
+                                        <div class="checkout__form-divider">
+                                            <span class="checkout__form-divider-text">or</span>
+                                        </div>
+                                        <button type="button"
+                                            class="checkout__form-social-login btn btn_primary-white">Continue with
+                                            Google
+                                            <img src="/icons/google-icon.svg" alt="image not found" width="24"
+                                                height="24" aria-hidden="true">
+                                        </button>
+                                        <button type="button"
+                                            class="checkout__form-submit btn btn_primary">Login</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="checkout__right-col">
+                <h4 class="checkout__right-col-title">Your Cart <span>(4)</span></h4>
+                <div class="checkout__right-col-items">
+                    <div class="checkout__right-col-item">
+                        <div class="checkout__right-col-item-img">
+                            <img src="/images/shop-1.png" alt="image not found" width="100" height="100">
+                        </div>
+                        <div class="checkout__right-col-item-content">
+                            <h5>Omega Speedmaster Professional Moonwatch</h5>
+                            <span class="checkout__right-col-item-price">$6000.00</span>
+                            <div class="checkout__right-col-item-counter">
+                                <button type="button"
+                                    class="checkout__right-col-item-counter-button decrement disabled">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 12H18" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                                <button type="button" class="checkout__right-col-item-counter-button value">1</button>
+                                <button type="button" class="checkout__right-col-item-counter-button increment">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="checkout__right-col-item-actions">
+                            <button type="button" class="checkout__right-col-item-actions-button remove">
+                                <img src="/icons/cross.svg" alt="image not found" width="24" height="24"
+                                    aria-hidden="true">
+                            </button>
+                            <button type="button" class="checkout__right-col-item-actions-button favorite">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12.62 20.81C12.28 20.93 11.72 20.93 11.38 20.81C8.48 19.82 2 15.69 2 8.68998C2 5.59998 4.49 3.09998 7.56 3.09998C9.38 3.09998 10.99 3.97998 12 5.33998C13.01 3.97998 14.63 3.09998 16.44 3.09998C19.51 3.09998 22 5.59998 22 8.68998C22 15.69 15.52 19.82 12.62 20.81Z"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="checkout__right-col-item">
+                        <div class="checkout__right-col-item-img">
+                            <img src="/images/shop-1.png" alt="image not found" width="100" height="100">
+                        </div>
+                        <div class="checkout__right-col-item-content">
+                            <h5>Omega Speedmaster Professional Moonwatch</h5>
+                            <span class="checkout__right-col-item-price">$6000.00</span>
+                            <div class="checkout__right-col-item-counter">
+                                <button type="button"
+                                    class="checkout__right-col-item-counter-button decrement disabled">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 12H18" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                                <button type="button" class="checkout__right-col-item-counter-button value">1</button>
+                                <button type="button" class="checkout__right-col-item-counter-button increment">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="checkout__right-col-item-actions">
+                            <button type="button" class="checkout__right-col-item-actions-button remove">
+                                <img src="/icons/cross.svg" alt="image not found" width="24" height="24"
+                                    aria-hidden="true">
+                            </button>
+                            <button type="button" class="checkout__right-col-item-actions-button favorite">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12.62 20.81C12.28 20.93 11.72 20.93 11.38 20.81C8.48 19.82 2 15.69 2 8.68998C2 5.59998 4.49 3.09998 7.56 3.09998C9.38 3.09998 10.99 3.97998 12 5.33998C13.01 3.97998 14.63 3.09998 16.44 3.09998C19.51 3.09998 22 5.59998 22 8.68998C22 15.69 15.52 19.82 12.62 20.81Z"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="checkout__right-col-item">
+                        <div class="checkout__right-col-item-img">
+                            <img src="/images/shop-1.png" alt="image not found" width="100" height="100">
+                        </div>
+                        <div class="checkout__right-col-item-content">
+                            <h5>Omega Speedmaster Professional Moonwatch</h5>
+                            <span class="checkout__right-col-item-price">$6000.00</span>
+                            <div class="checkout__right-col-item-counter">
+                                <button type="button"
+                                    class="checkout__right-col-item-counter-button decrement disabled">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 12H18" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                                <button type="button" class="checkout__right-col-item-counter-button value">1</button>
+                                <button type="button" class="checkout__right-col-item-counter-button increment">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="checkout__right-col-item-actions">
+                            <button type="button" class="checkout__right-col-item-actions-button remove">
+                                <img src="/icons/cross.svg" alt="image not found" width="24" height="24"
+                                    aria-hidden="true">
+                            </button>
+                            <button type="button" class="checkout__right-col-item-actions-button favorite">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12.62 20.81C12.28 20.93 11.72 20.93 11.38 20.81C8.48 19.82 2 15.69 2 8.68998C2 5.59998 4.49 3.09998 7.56 3.09998C9.38 3.09998 10.99 3.97998 12 5.33998C13.01 3.97998 14.63 3.09998 16.44 3.09998C19.51 3.09998 22 5.59998 22 8.68998C22 15.69 15.52 19.82 12.62 20.81Z"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <details class="checkout__promo">
+                    <summary class="checkout__promo-summary">
+                        <span class="checkout__promo-title">Promocode</span>
+                        <img class="checkout__promo-icon" src="/icons/dropdown-arrow.svg" alt="image not found"
+                            width="24" height="24" aria-hidden="true">
+                    </summary>
+                    <div class="checkout__promo-content">
+                        <form action="#" class="checkout__right-col-form sell__form checkout__promo-form" novalidate>
+                            <div class="checkout__right-col-form-row">
+                                <label class="checkout__right-col-form-label" for="checkout-form-promocode">
+                                    <input type="text" id="checkout-form-promocode" name="checkout-form-promocode"
+                                        placeholder="Enter your promocode">
+                                    <span class="form-error" aria-live="polite"></span>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                </details>
+                <div class="checkout__right-col-total">
+                    <div class="checkout__right-col-total-item subtotal">
+                        <span class="checkout__right-col-total-item-label">Subtotal <span>(4 items)</span></span>
+                        <span class="checkout__right-col-total-item-value">$6000.00</span>
+                    </div>
+                    <div class="checkout__right-col-total-item total">
+                        <span class="checkout__right-col-total-item-label">Total</span>
+                        <span class="checkout__right-col-total-item-value">$6000.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

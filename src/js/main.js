@@ -35,6 +35,7 @@ import {
   initHeroBannerAboveFooter,
 } from './modules/utils.js';
 import { initFaqAccordion, initProductFaqTabs } from './modules/faq.js';
+import { initCheckoutTabs } from './modules/checkout.js';
 
 // Initialize all modules
 initMobileMenu();
@@ -57,5 +58,6 @@ initFindForm();
 initYearProductionFormSteps();
 initFaqAccordion();
 initProductFaqTabs();
+initCheckoutTabs();
 initViewportActiveSections();
 initHeroBannerAboveFooter();

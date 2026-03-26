@@ -1,0 +1,446 @@
+.checkout {
+  padding: 80px 0;
+  overflow: hidden;
+
+  &__inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+
+    @include media('<desktop') {
+      flex-direction: column;
+    }
+  }
+
+  &__left-col {
+    width: 65%;
+
+    @include media('<desktop') {
+      width: 100%;
+    }
+  }
+
+  &__steps {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+
+  &__step {
+    @include adaptive-value('font-size', 24, 16, 1);
+    color: map-get($neutral, 700);
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: start;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid map-get($neutral, 400);
+
+    &.active {
+      border-color: map-get($brand, 500);
+      color: map-get($brand, 500);
+      font-weight: 700;
+    }
+  }
+
+  &__panel-buttons {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+  }
+
+  &__panel-button {
+    width: 100%;
+    padding: 20px;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    border-bottom: 1px solid map-get($neutral, 400);
+    @include adaptive-value('font-size', 20, 16, 1);
+    font-weight: 500;
+    text-align: center;
+    color: map-get($brand, 500);
+
+    &.active {
+      background-color: map-get($neutral, 300);
+    }
+  }
+
+  &__panel-form {
+    gap: 24px;
+  }
+
+  &__panel-form-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    @include media('<tablet') {
+      flex-direction: column;
+    }
+  }
+
+  &__form-label {
+    width: 100%;
+  }
+
+  &__form-checkbox {
+    display: flex;
+    flex-direction: row !important;
+    width: max-content;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__form-checkbox_round {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__form-checkbox-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  &__form-checkbox-control {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid map-get($brand, 500);
+    background-color: transparent;
+    display: grid;
+    place-items: center;
+    flex: 0 0 16px;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+
+    &::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background-color: map-get($neutral, 100);
+      transform: scale(0);
+      transition: transform 0.18s ease;
+    }
+  }
+
+  &__form-checkbox-text {
+    font-size: 16px;
+    font-weight: 400;
+    color: map-get($brand, 500);
+  }
+
+  &__form-checkbox-input:checked + .checkout__form-checkbox-control {
+    background-color: map-get($brand, 500);
+    border-color: map-get($brand, 500);
+
+    &::after {
+      transform: scale(1);
+    }
+  }
+
+  &__form-checkbox-input:focus-visible + .checkout__form-checkbox-control {
+    outline: 2px solid map-get($brand, 500);
+    outline-offset: 2px;
+  }
+
+  &__form-checkbox_round:hover .checkout__form-checkbox-control {
+    border-color: map-get($brand, 500);
+  }
+
+  &__form-forgot-password {
+    font-size: 16px;
+    font-weight: 600;
+    color: map-get($brand, 400);
+    width: max-content;
+    margin-left: auto;
+    margin-bottom: 16px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__form-divider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: map-get($neutral, 400);
+      z-index: -1;
+    }
+
+    &-text {
+      padding: 10px;
+      background-color: map-get($neutral, 100);
+      color: map-get($neutral, 700);
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+
+  &__form-social-login {
+    width: 100%;
+
+    img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+  }
+
+  &__right-col {
+    width: 32%;
+
+    @include media('<desktop') {
+      width: 100%;
+    }
+
+    &-title {
+      margin-bottom: 40px;
+    }
+
+    &-items {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      height: 425px;
+      overflow: auto;
+      margin-bottom: 28px;
+
+
+      @include media ("<desktop") {
+        height: auto;
+      }
+
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: map-get($brand, 200);
+        border-radius: 4px;
+      }
+    }
+
+    &-item {
+      display: flex;
+      gap: 10px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid map-get($neutral, 400);
+    }
+
+    &-item-img {
+      width: 100px;
+      height: 120px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    &-item-content {
+      max-width: 185px;
+      width: 100%;
+      padding: 10px 0;
+
+      h5 {
+        text-transform: none;
+        font-size: 14px;
+        font-weight: 500;
+        color: map-get($brand, 500);
+        margin-bottom: 8px;
+      }
+    }
+
+    &-item-price {
+      font-size: 14px;
+      font-weight: 600;
+      color: map-get($brand, 500);
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+
+    &-item-counter {
+      display: flex;
+      align-items: center;
+
+      &-button {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+
+        &.disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    &-item-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-left: auto;
+
+      &-button {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+
+        img {
+          width: 24px;
+          height: 24px;
+          object-fit: contain;
+        }
+
+        &.favorite {
+          svg {
+            fill: map-get($neutral, 100);
+
+            path {
+              stroke: map-get($brand, 500);
+            }
+          }
+
+          &.checked {
+            svg {
+              fill: map-get($brand, 500);
+            }
+          }
+        }
+      }
+    }
+
+    &-total {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      &-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+
+        &.subtotal {
+          .checkout__right-col-total-item-label {
+            font-size: 16px;
+            font-weight: 500;
+            color: map-get($brand, 500);
+          }
+
+          .checkout__right-col-total-item-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: map-get($brand, 500);
+          }
+        }
+
+        &.total {
+          .checkout__right-col-total-item-label,
+          .checkout__right-col-total-item-value {
+            font-size: 24px;
+            font-weight: 600;
+            color: map-get($brand, 500);
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+  }
+
+  &__promo {
+    margin-bottom: 28px;
+    background-color: map-get($neutral, 100);
+    overflow: hidden;
+
+    &[open] {
+      .checkout__promo-icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__promo-summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px;
+    color: map-get($brand, 500);
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid map-get($neutral, 400);
+    border-radius: 12px;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid map-get($brand, 500);
+      outline-offset: 2px;
+    }
+
+    .checkout__promo-icon {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      flex: 0 0 24px;
+      transition: transform 0.2s ease;
+    }
+  }
+
+  &__promo-title {
+    color: map-get($neutral, 700);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: all 0.3s ease;
+  }
+
+  &__promo-content {
+    margin-top: 20px;
+  }
+}
