@@ -2,6 +2,7 @@ import {
   MOBILE_MENU_OPEN_CLASS,
   BODY_MENU_OPEN_CLASS,
   CONTACT_MODAL_OPEN_CLASS,
+  FORGOT_PASSWORD_POPUP_OPEN_CLASS,
   BODY_MODAL_OPEN_CLASS,
 } from './constants.js';
 
@@ -94,6 +95,101 @@ export function initContactModal() {
       modal.classList.contains(CONTACT_MODAL_OPEN_CLASS)
     ) {
       closeModal();
+    }
+  });
+}
+
+export function initForgotPasswordPopup() {
+  const popup = document.querySelector('.forgot-password-popup');
+  const form = document.querySelector('.section-forgot-password__form');
+  const emailTarget = document.getElementById('forgot-password-popup-email');
+  const emailInput = document.getElementById('forgot-password-form-email');
+  const closeBtn = document.querySelector('.forgot-password-popup__close');
+  const overlay = document.querySelector('.forgot-password-popup__overlay');
+
+  if (!popup || !form) return;
+
+  let lastFocusedElement = null;
+  const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+  function getFocusableElements() {
+    return Array.from(popup.querySelectorAll(focusableElements)).filter(
+      (el) => !el.hasAttribute('disabled') && !el.hasAttribute('aria-hidden'),
+    );
+  }
+
+  function trapFocus(e) {
+    if (e.key !== 'Tab') return;
+    const focusableEls = getFocusableElements();
+    const firstFocusable = focusableEls[0];
+    const lastFocusable = focusableEls[focusableEls.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === firstFocusable) {
+        e.preventDefault();
+        lastFocusable?.focus();
+      }
+    } else if (document.activeElement === lastFocusable) {
+      e.preventDefault();
+      firstFocusable?.focus();
+    }
+  }
+
+  function removeBodyModalOpenIfIdle() {
+    const contactOpen = document
+      .querySelector('.contact-modal')
+      ?.classList.contains(CONTACT_MODAL_OPEN_CLASS);
+    if (!contactOpen) {
+      document.body.classList.remove(BODY_MODAL_OPEN_CLASS);
+    }
+  }
+
+  function openPopup() {
+    lastFocusedElement = document.activeElement;
+    const rawEmail = emailInput?.value?.trim() || '';
+    if (emailTarget) {
+      emailTarget.textContent = rawEmail;
+    }
+
+    popup.classList.add(FORGOT_PASSWORD_POPUP_OPEN_CLASS);
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.classList.add(BODY_MODAL_OPEN_CLASS);
+    setTimeout(() => {
+      closeBtn?.focus();
+    }, 0);
+    popup.addEventListener('keydown', trapFocus);
+  }
+
+  function closePopup() {
+    if (closeBtn && document.activeElement === closeBtn) {
+      closeBtn.blur();
+    }
+    popup.classList.remove(FORGOT_PASSWORD_POPUP_OPEN_CLASS);
+    popup.setAttribute('aria-hidden', 'true');
+    removeBodyModalOpenIfIdle();
+    popup.removeEventListener('keydown', trapFocus);
+    if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+      setTimeout(() => lastFocusedElement.focus(), 0);
+    }
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    openPopup();
+  });
+
+  closeBtn?.addEventListener('click', closePopup);
+  overlay?.addEventListener('click', closePopup);
+
+  document.addEventListener('keydown', (e) => {
+    if (
+      e.key === 'Escape' &&
+      popup.classList.contains(FORGOT_PASSWORD_POPUP_OPEN_CLASS)
+    ) {
+      closePopup();
     }
   });
 }

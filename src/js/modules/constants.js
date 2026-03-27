@@ -1,6 +1,7 @@
 export const MOBILE_MENU_OPEN_CLASS = 'mobile-menu--open';
 export const BODY_MENU_OPEN_CLASS = 'body-menu-open';
 export const CONTACT_MODAL_OPEN_CLASS = 'contact-modal--open';
+export const FORGOT_PASSWORD_POPUP_OPEN_CLASS = 'forgot-password-popup--open';
 export const BODY_MODAL_OPEN_CLASS = 'body-modal-open';
 
 export const ABOUT_BRANDS_BREAKPOINT = 768;
