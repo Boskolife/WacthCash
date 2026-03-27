@@ -79,3 +79,39 @@ export function initHeroBannerAboveFooter() {
   window.addEventListener('scroll', onScrollOrResize, { passive: true });
   window.addEventListener('resize', onScrollOrResize);
 }
+
+const THANKS_PAYMENT_COPY_DONE_MS = 2000;
+
+/**
+ * Thanks payment page: copy order ID from visible text (button text content) to clipboard.
+ */
+export function initThanksPaymentCopyOrderId() {
+  const btn = document.querySelector('[data-thanks-payment-copy-order-id]');
+  if (!btn || !(btn instanceof HTMLButtonElement)) return;
+
+  const defaultLabel = btn.getAttribute('aria-label') || 'Copy order ID to clipboard';
+  let revertTimer = null;
+
+  async function copy() {
+    const text = btn.textContent?.trim() ?? '';
+    if (!text) return;
+
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch {
+      return;
+    }
+
+    btn.classList.add('is-copied');
+    btn.setAttribute('aria-label', 'Copied to clipboard');
+
+    if (revertTimer) window.clearTimeout(revertTimer);
+    revertTimer = window.setTimeout(() => {
+      btn.classList.remove('is-copied');
+      btn.setAttribute('aria-label', defaultLabel);
+      revertTimer = null;
+    }, THANKS_PAYMENT_COPY_DONE_MS);
+  }
+
+  btn.addEventListener('click', copy);
+}

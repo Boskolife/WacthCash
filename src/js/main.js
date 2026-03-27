@@ -33,6 +33,7 @@ import {
   updateCurrentYear,
   initViewportActiveSections,
   initHeroBannerAboveFooter,
+  initThanksPaymentCopyOrderId,
 } from './modules/utils.js';
 import { initFaqAccordion, initProductFaqTabs } from './modules/faq.js';
 import { initCheckoutTabs } from './modules/checkout.js';
@@ -70,3 +71,4 @@ initCheckoutSavedCardButtons();
 initCheckoutStepsNavigation();
 initViewportActiveSections();
 initHeroBannerAboveFooter();
+initThanksPaymentCopyOrderId();
