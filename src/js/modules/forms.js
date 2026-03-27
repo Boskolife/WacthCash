@@ -948,6 +948,11 @@ export function initSellFormSubmit() {
       return;
     }
 
+    // Login / register — not sell flow / thanks redirect
+    if (form.classList.contains('auth-page__form')) {
+      return;
+    }
+
     // Add real-time validation on blur
     const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
     inputs.forEach((input) => {

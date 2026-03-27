@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+{{> head-register }}
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    {{> header }}
+    <main class="main" id="main-content">
+        <section class="section-login auth-page">
+            <div class="container">
+                <div class="auth-page__inner">
+                    <h1 class="auth-page__title">Join WatchCash Today</h1>
+                    <p class="auth-page__description">Create your personal account to manage quotes, purchases, and
+                        watch sales in one secure place.</p>
+                    <form class="auth-page__form sell__form" novalidate>
+                        <div class="auth-page__form-group">
+                            <div class="auth-page__form-row">
+                                <label class="auth-page__form-label" for="register-form-first-name">First Name
+                                    <input class="auth-page__form-input" type="text" id="register-form-first-name"
+                                        name="register-form-first-name" placeholder="Enter your first name"
+                                        autocomplete="given-name" required>
+                                </label>
+                                <label class="auth-page__form-label" for="register-form-last-name">Last Name
+                                    <input class="auth-page__form-input" type="text" id="register-form-last-name"
+                                        name="register-form-last-name" placeholder="Enter your last name"
+                                        autocomplete="family-name" required>
+                                </label>
+                            </div>
+                            <div class="auth-page__form-row">
+                                <label class="auth-page__form-label" for="register-form-email">Email
+                                    <input class="auth-page__form-input" type="email" id="register-form-email"
+                                        name="register-form-email" placeholder="Enter your email"
+                                        autocomplete="email" required>
+                                </label>
+                            </div>
+                            <div class="auth-page__form-row">
+                                <label class="auth-page__form-label" for="register-form-password">Password
+                                    <input class="auth-page__form-input" type="password" id="register-form-password"
+                                        name="register-form-password" placeholder="Enter your password"
+                                        autocomplete="new-password" required>
+                                </label>
+                                <label class="auth-page__form-label" for="register-form-password-confirm">Confirm Password
+                                    <input class="auth-page__form-input" type="password"
+                                        id="register-form-password-confirm" name="register-form-password-confirm"
+                                        placeholder="Confirm your password" autocomplete="new-password" required>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="auth-page__buttons">
+                            <button type="submit" class="auth-page__form-button btn btn_primary">Create an Account</button>
+                            <div class="auth-page__buttons-divider">
+                                <span class="auth-page__buttons-divider-text">or</span>
+                            </div>
+                            <button type="button"
+                                class="auth-page__buttons-social-login btn btn_primary-white social-login-btn">Continue
+                                with
+                                Google
+                                <img src="/icons/google-icon.svg" alt="" width="24" height="24"
+                                    aria-hidden="true">
+                            </button>
+                        </div>
+                    </form>
+                    <p class="auth-page__text">Already have an account? <a href="login.html"
+                            class="auth-page__link">Log In</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    {{> contact-modal }}
+    {{> mobile-menu }}
+    {{> footer }}
+    <script type="module" src="/js/main.js"></script>
+</body>
+
+</html>
