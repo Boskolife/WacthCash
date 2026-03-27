@@ -1,0 +1,44 @@
+// Shared layout: forgot password (request link) & set new password pages
+.invoice-page {
+  padding: 80px 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__inner {
+    max-width: 580px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  &__title {
+    font-weight: 700;
+    @include adaptive-value('font-size', 48, 32, 1);
+    color: map-get($brand, 500);
+    @include adaptive-value('margin-bottom', 20, 12, 1);
+  }
+
+  &__description {
+    @include adaptive-value('font-size', 24, 16, 1);
+    color: map-get($brand, 400);
+    @include px-to-percent-line-height(32px, 24px);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  &__button {
+    margin-top: 44px;
+    width: 100%;
+
+    @include media('<tablet') {
+      margin-top: 24px;
+    }
+  }
+}
