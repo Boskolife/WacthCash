@@ -1,6 +1,5 @@
 .checkout {
   padding: 80px 0;
-  overflow: hidden;
 
   &__inner {
     display: flex;
@@ -40,6 +39,10 @@
     margin: 0;
     padding: 0 0 20px 0;
     border-bottom: 1px solid map-get($neutral, 400);
+
+    @include media('<tablet') {
+      text-transform: none;
+    }
 
     &.active {
       border-color: map-get($brand, 500);
@@ -234,8 +237,7 @@
       overflow: auto;
       margin-bottom: 28px;
 
-
-      @include media ("<desktop") {
+      @include media('<desktop') {
         height: auto;
       }
 
@@ -442,5 +444,130 @@
 
   &__promo-content {
     margin-top: 20px;
+  }
+
+  .checkout__panel-form-checkboxes {
+    display: flex;
+    flex-direction: column;
+    row-gap: 26px;
+    margin-bottom: 16px;
+  }
+
+  #checkout-panel-shipping {
+    .checkout__panel-form-row_flex {
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      .checkout__form-label {
+        width: 46%;
+
+        &:last-child {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  #checkout-panel-payment {
+    .checkout__form-checkbox-text_flex {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .checkout__form-checkbox-text-icon {
+      width: 48px;
+      height: 16px;
+      object-fit: contain;
+    }
+
+    .checkout__panel-buttons {
+      margin-bottom: 16px;
+    }
+
+    .checkout__panel-tab-details {
+      &:not(:last-child) {
+        margin-bottom: 24px;
+      }
+
+      h4,
+      h5 {
+        text-transform: none;
+        font-weight: 600;
+        color: map-get($brand, 500);
+        margin-bottom: 8px;
+      }
+
+      h4 {
+        font-size: 20px;
+      }
+
+      h5 {
+        font-size: 16px;
+      }
+
+      p,
+      span {
+        font-size: 14px;
+        font-weight: 500;
+        color: map-get($neutral, 700);
+
+        &:not(:last-child) {
+          margin-bottom: 12px;
+        }
+      }
+
+      &-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+
+        span {
+          &:last-child {
+            font-weight: 600;
+            color: map-get($brand, 500);
+          }
+        }
+      }
+    }
+
+    .checkout__panel-tab-note {
+      padding: 12px;
+      background-color: map-get($yellow, 100);
+      border-radius: 12px;
+      margin-top: 16px;
+      border: 1px solid map-get($yellow, 400);
+
+      h5 {
+        text-transform: none;
+        font-size: 16px;
+        font-weight: 600;
+        color: map-get($yellow, 700);
+        margin-bottom: 8px;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: 500;
+        color: map-get($yellow, 700);
+      }
+    }
+
+    .checkout__panel-tab-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      @include adaptive-value('margin-top', 40, 32, 1);
+
+      @include media ("<tablet") {
+        flex-direction: column;
+      }
+    }
+
+    .checkout__panel-tab-button {
+      width: 100%;
+    }
   }
 }

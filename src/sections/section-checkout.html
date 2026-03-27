@@ -55,6 +55,7 @@
                                             <span class="checkout__form-checkbox-control" aria-hidden="true"></span>
                                             <span class="checkout__form-checkbox-text">Register</span>
                                         </label>
+                                        <!-- TODO: Change button type to submit -->
                                         <button type="button" class="checkout__form-submit btn btn_primary">Proceed to
                                             Shipping</button>
                                     </form>
@@ -85,12 +86,280 @@
                                             <img src="/icons/google-icon.svg" alt="image not found" width="24"
                                                 height="24" aria-hidden="true">
                                         </button>
+                                        <!-- TODO: Change button type to submit -->
                                         <button type="button"
                                             class="checkout__form-submit btn btn_primary">Login</button>
                                     </form>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div id="checkout-panel-shipping" class="checkout__panel" role="tabpanel" tabindex="0"
+                        aria-labelledby="checkout-tab-shipping">
+                        <form action="#" class="checkout__panel-form sell__form checkout__form" novalidate>
+                            <div class="checkout__panel-form-checkboxes">
+                                <label class="checkout__form-checkbox checkout__form-checkbox_round"
+                                    for="checkout-form-free-shipping">
+                                    <input class="checkout__form-checkbox-input" type="radio"
+                                        id="checkout-form-free-shipping" name="checkout-form-shipping"
+                                        value="free-shipping" required>
+                                    <span class="checkout__form-checkbox-control" aria-hidden="true"></span>
+                                    <span class="checkout__form-checkbox-text">Free shipping</span>
+                                </label>
+                                <label class="checkout__form-checkbox checkout__form-checkbox_round"
+                                    for="checkout-form-flat-rate">
+                                    <input class="checkout__form-checkbox-input" type="radio"
+                                        id="checkout-form-flat-rate" name="checkout-form-shipping" value="flat-rate"
+                                        required>
+                                    <span class="checkout__form-checkbox-control" aria-hidden="true"></span>
+                                    <span class="checkout__form-checkbox-text">Flat rate: $9.00</span>
+                                </label>
+                                <label class="checkout__form-checkbox checkout__form-checkbox_round"
+                                    for="checkout-form-pickup">
+                                    <input class="checkout__form-checkbox-input" type="radio" id="checkout-form-pickup"
+                                        name="checkout-form-shipping" value="pickup" required>
+                                    <span class="checkout__form-checkbox-control" aria-hidden="true"></span>
+                                    <span class="checkout__form-checkbox-text">Pickup: $21.00</span>
+                                </label>
+                            </div>
+                            <div class="checkout__panel-form-row">
+                                <label class="checkout__form-label" for="checkout-form-shipping-country">Country/Region
+                                    <div class="custom-select is-placeholder" data-custom-select>
+                                        <select id="checkout-form-shipping-country"
+                                            name="checkout-form-shipping-country" required>
+                                            <option value="">Select country/region</option>
+                                            <option value="us">United States</option>
+                                            <option value="uk">United Kingdom</option>
+                                            <option value="ca">Canada</option>
+                                            <option value="de">Germany</option>
+                                        </select>
+                                        <button type="button" class="custom-select__button" aria-haspopup="listbox"
+                                            aria-expanded="false" aria-labelledby="checkout-form-shipping-country">
+                                            <span class="custom-select__selected">Select country/region</span>
+                                            <svg class="custom-select__arrow" width="20" height="20" viewBox="0 0 20 20"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </button>
+                                        <ul class="custom-select__dropdown" role="listbox"
+                                            aria-labelledby="checkout-form-shipping-country">
+                                            <li class="custom-select__option" role="option" data-value="" tabindex="-1"
+                                                aria-selected="false">Select country/region</li>
+                                            <li class="custom-select__option" role="option" data-value="us"
+                                                tabindex="-1" aria-selected="false">United States</li>
+                                            <li class="custom-select__option" role="option" data-value="uk"
+                                                tabindex="-1" aria-selected="false">United Kingdom</li>
+                                            <li class="custom-select__option" role="option" data-value="ca"
+                                                tabindex="-1" aria-selected="false">Canada</li>
+                                            <li class="custom-select__option" role="option" data-value="de"
+                                                tabindex="-1" aria-selected="false">Germany</li>
+                                        </ul>
+                                    </div>
+                                </label>
+                                <span class="form-error" aria-live="polite"></span>
+                            </div>
+                            <div class="checkout__panel-form-row">
+                                <label class="checkout__form-label" for="checkout-form-shipping-address">Address
+                                    <input type="text" id="checkout-form-shipping-address"
+                                        name="checkout-form-shipping-address" placeholder="Enter your address" required>
+                                    <span class="form-error" aria-live="polite"></span>
+                                </label>
+                            </div>
+                            <div class="checkout__panel-form-row">
+                                <label class="checkout__form-label" for="checkout-form-shipping-apartment">Apartment,
+                                    suite,
+                                    etc. (optional)
+                                    <input type="text" id="checkout-form-shipping-apartment"
+                                        name="checkout-form-shipping-apartment" placeholder="Apartment, suite, etc.">
+                                    <span class="form-error" aria-live="polite"></span>
+                                </label>
+                            </div>
+                            <div class="checkout__panel-form-row checkout__panel-form-row_flex">
+                                <label class="checkout__form-label" for="checkout-form-shipping-city">City
+                                    <input type="text" id="checkout-form-shipping-city"
+                                        name="checkout-form-shipping-city" placeholder="Enter your city" required>
+                                    <span class="form-error" aria-live="polite"></span>
+                                </label>
+                                <label class="checkout__form-label" for="checkout-form-shipping-state">State
+                                    <div class="custom-select is-placeholder" data-custom-select>
+                                        <select id="checkout-form-shipping-state" name="checkout-form-shipping-state"
+                                            required>
+                                            <option value="">Select state</option>
+                                            <option value="ca">California</option>
+                                            <option value="ny">New York</option>
+                                            <option value="tx">Texas</option>
+                                            <option value="fl">Florida</option>
+                                        </select>
+                                        <button type="button" class="custom-select__button" aria-haspopup="listbox"
+                                            aria-expanded="false" aria-labelledby="checkout-form-shipping-state">
+                                            <span class="custom-select__selected">Select state</span>
+                                            <svg class="custom-select__arrow" width="20" height="20" viewBox="0 0 20 20"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </button>
+                                        <ul class="custom-select__dropdown" role="listbox"
+                                            aria-labelledby="checkout-form-shipping-state">
+                                            <li class="custom-select__option" role="option" data-value="" tabindex="-1"
+                                                aria-selected="false">Select state</li>
+                                            <li class="custom-select__option" role="option" data-value="ca"
+                                                tabindex="-1" aria-selected="false">California</li>
+                                            <li class="custom-select__option" role="option" data-value="ny"
+                                                tabindex="-1" aria-selected="false">New York</li>
+                                            <li class="custom-select__option" role="option" data-value="tx"
+                                                tabindex="-1" aria-selected="false">Texas</li>
+                                            <li class="custom-select__option" role="option" data-value="fl"
+                                                tabindex="-1" aria-selected="false">Florida</li>
+                                        </ul>
+                                    </div>
+                                    <span class="form-error" aria-live="polite"></span>
+                                </label>
+                                <label class="checkout__form-label" for="checkout-form-shipping-postal-code">Postal Code
+                                    <input type="text" id="checkout-form-shipping-postal-code"
+                                        name="checkout-form-shipping-postal-code" placeholder="Enter your postal code"
+                                        required>
+                                    <span class="form-error" aria-live="polite"></span>
+                                </label>
+                            </div>
+                            <!-- TODO: Change button type to submit -->
+                            <button type="button" class="checkout__form-submit btn btn_primary">Proceed to
+                                Payment</button>
+                        </form>
+                    </div>
+                    <div id="checkout-panel-payment" class="checkout__panel" role="tabpanel" tabindex="0"
+                        aria-labelledby="checkout-tab-payment">
+                        <form action="#" class="checkout__panel-form sell__form checkout__form checkout__form_payment"
+                            novalidate>
+                            <div class="checkout__panel-form-checkboxes">
+                                <label class="checkout__form-checkbox checkout__form-checkbox_round"
+                                    for="checkout-form-payment-bank-transfer">
+                                    <input class="checkout__form-checkbox-input" type="radio"
+                                        id="checkout-form-payment-bank-transfer" name="checkout-form-payment-method"
+                                        value="bank-transfer" required>
+                                    <span class="checkout__form-checkbox-control" aria-hidden="true"></span>
+                                    <span class="checkout__form-checkbox-text">Direct Bank Transfer</span>
+                                </label>
+                                <label class="checkout__form-checkbox checkout__form-checkbox_round"
+                                    for="checkout-form-payment-credit-card">
+                                    <input class="checkout__form-checkbox-input" type="radio"
+                                        id="checkout-form-payment-credit-card" name="checkout-form-payment-method"
+                                        value="credit-card"
+                                        required>
+                                    <span class="checkout__form-checkbox-control" aria-hidden="true"></span>
+                                    <span class="checkout__form-checkbox-text checkout__form-checkbox-text_flex">Credit
+                                        Card
+                                        <img class="checkout__form-checkbox-text-icon" src="/icons/visa.svg"
+                                            alt="image not found" width="24" height="24" aria-hidden="true">
+                                        <img class="checkout__form-checkbox-text-icon" src="/icons/mastercard.svg"
+                                            alt="image not found" width="24" height="24" aria-hidden="true">
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="checkout__panel-buttons" role="tablist" aria-label="Checkout account type">
+                                <button type="button" class="checkout__panel-button active" role="tab"
+                                    aria-selected="true" data-checkout-tab="new-customer">Paying From Canada</button>
+                                <button type="button" class="checkout__panel-button" role="tab" aria-selected="false"
+                                    tabindex="-1" data-checkout-tab="account">Paying From Another Country</button>
+                            </div>
+                            <div class="checkout__panel-tab " role="tabpanel" tabindex="0"
+                                data-checkout-panel="new-customer">
+                                <div class="checkout__panel-tab-details">
+                                    <h4 class="checkout__panel-tab-title">Bank Transfer Details</h4>
+                                    <p class="checkout__panel-tab-description">Please use the following details to send
+                                        your payment. <br> You can pay via Interac e-Transfer or direct EFT bank
+                                        transfer.</p>
+                                </div>
+                                <div class="checkout__panel-tab-details">
+                                    <h5>Direct EFT Bank Transfer</h5>
+                                    <div class="checkout__panel-tab-details-row">
+                                        <span>Email</span>
+                                        <span>example@example.com</span>
+                                    </div>
+                                    <div class="checkout__panel-tab-details-row">
+                                        <span>Phone Number</span>
+                                        <span>+1 (647) 555-1234</span>
+                                    </div>
+                                </div>
+                                <div class="checkout__panel-tab-details">
+                                    <h5>Interac e-Transfer</h5>
+                                    <div class="checkout__panel-tab-details-row">
+                                        <span>Account Holder Name:</span>
+                                        <span>Watch Cash</span>
+                                    </div>
+                                    <div class="checkout__panel-tab-details-row">
+                                        <span>Bank number (Institution number):</span>
+                                        <span>000</span>
+                                    </div>
+                                    <div class="checkout__panel-tab-details-row">
+                                        <span>Transit number (Branch number):</span>
+                                        <span>12345</span>
+                                    </div>
+                                    <div class="checkout__panel-tab-details-row">
+                                        <span>Account Number:</span>
+                                        <span>00123456789</span>
+                                    </div>
+                                </div>
+                                <div class="checkout__panel-tab-buttons">
+                                    <button type="button"
+                                        class="checkout__panel-tab-button btn btn_primary-white">Request an
+                                        Invoice</button>
+                                    <button type="button"
+                                        class="checkout__panel-tab-button btn btn_primary">Payment Sent</button>
+                                </div>
+                            </div>
+                            <div class="checkout__panel-tab " role="tabpanel" tabindex="0"
+                                data-checkout-panel="account">
+                                <div class="checkout__panel-tab-details">
+                                    <h4 class="checkout__panel-tab-title">Bank Transfer Details</h4>
+                                    <p class="checkout__panel-tab-description">Please use the following details to send
+                                        your payment. <br> You can pay via Interac e-Transfer or direct EFT bank
+                                        transfer.</p>
+                                </div>
+                                <div class="checkout__panel-tab-details">
+                                    <h5>Direct EFT Bank Transfer</h5>
+                                    <div class="checkout__panel-tab-details-row">
+                                        <span>Email</span>
+                                        <span>example@example.com</span>
+                                    </div>
+                                    <div class="checkout__panel-tab-details-row">
+                                        <span>Phone Number</span>
+                                        <span>+1 (647) 555-1234</span>
+                                    </div>
+                                </div>
+                                <div class="checkout__panel-tab-details">
+                                    <h5>Interac e-Transfer</h5>
+                                    <div class="checkout__panel-tab-details-row">
+                                        <span>Account Holder Name:</span>
+                                        <span>Watch Cash</span>
+                                    </div>
+                                    <div class="checkout__panel-tab-details-row">
+                                        <span>Bank number (Institution number):</span>
+                                        <span>000</span>
+                                    </div>
+                                    <div class="checkout__panel-tab-details-row">
+                                        <span>Transit number (Branch number):</span>
+                                        <span>12345</span>
+                                    </div>
+                                    <div class="checkout__panel-tab-details-row">
+                                        <span>Account Number:</span>
+                                        <span>00123456789</span>
+                                    </div>
+                                </div>
+                                <div class="checkout__panel-tab-note">
+                                    <h5>Note:</h5>
+                                    <p>Your bank may charge additional fees.</p>
+                                </div>
+                                <div class="checkout__panel-tab-buttons">
+                                    <button type="button"
+                                        class="checkout__panel-tab-button btn btn_primary-white">Request an
+                                        Invoice</button>
+                                    <button type="button"
+                                        class="checkout__panel-tab-button btn btn_primary">Payment Sent</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
