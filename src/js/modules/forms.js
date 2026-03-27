@@ -943,8 +943,8 @@ export function initSellFormSubmit() {
       return;
     }
 
-    // Forgot password uses its own submit + popup (not sell flow / thanks redirect)
-    if (form.classList.contains('section-forgot-password__form')) {
+    // Password flow pages (request link / set new password) — not sell flow / thanks redirect
+    if (form.classList.contains('password-page__form')) {
       return;
     }
 

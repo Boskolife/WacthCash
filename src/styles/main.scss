@@ -92,5 +92,5 @@ $media-expressions: (
 // Checkout Page
 @import 'layout/checkout';
 
-// Forgot Password Page
-@import 'layout/forgot-password';
+// Password flow pages (forgot password, set new password)
+@import 'layout/password-page';

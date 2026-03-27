@@ -101,7 +101,7 @@ export function initContactModal() {
 
 export function initForgotPasswordPopup() {
   const popup = document.querySelector('.forgot-password-popup');
-  const form = document.querySelector('.section-forgot-password__form');
+  const form = document.getElementById('forgot-password-request-form');
   const emailTarget = document.getElementById('forgot-password-popup-email');
   const emailInput = document.getElementById('forgot-password-form-email');
   const closeBtn = document.querySelector('.forgot-password-popup__close');
