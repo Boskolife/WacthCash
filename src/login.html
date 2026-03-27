@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+{{> head-login }}
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    {{> header }}
+    <main class="main" id="main-content">
+        <section class="section-login auth-page">
+            <div class="container">
+                <div class="auth-page__inner">
+                    <h1 class="auth-page__title">Log in</h1>
+                    <p class="auth-page__description">Access your personal account to track quotes, purchases, and
+                        shipments –
+                        all in one secure place.</p>
+                    <form class="auth-page__form sell__form">
+                        <div class="auth-page__form-group">
+                            <label class="auth-page__form-label" for="email">Email
+                                <input class="auth-page__form-input" type="email" id="email" name="email"
+                                    placeholder="Enter your email" required>
+                            </label>
+                            <label class="auth-page__form-label" for="password">Password
+                                <input class="auth-page__form-input" type="password" id="password" name="password"
+                                    placeholder="Enter your password" required>
+                            </label>
+                            <a href="forgot-password.html" class="auth-page__form-link">Forgot password?</a>
+                        </div>
+                        <div class="auth-page__buttons">
+                            <button type="submit" class="auth-page__form-button btn btn_primary">Log in</button>
+                            <div class="auth-page__buttons-divider">
+                                <span class="auth-page__buttons-divider-text">or</span>
+                            </div>
+                            <button type="button"
+                                class="auth-page__buttons-social-login btn btn_primary-white social-login-btn">Continue with
+                                Google
+                                <img src="/icons/google-icon.svg" alt="image not found" width="24" height="24"
+                                    aria-hidden="true">
+                            </button>
+                        </div>
+                    </form>
+                    <p class="auth-page__text">Don’t have an account? <a href="register.html"
+                            class="auth-page__link">Create one</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    {{> contact-modal }}
+    {{> mobile-menu }}
+    {{> footer }}
+    <script type="module" src="/js/main.js"></script>
+</body>
+
+</html>
