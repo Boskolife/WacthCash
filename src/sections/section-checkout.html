@@ -230,44 +230,45 @@
                     </div>
                     <div id="checkout-panel-payment" class="checkout__panel" role="tabpanel" tabindex="0"
                         aria-labelledby="checkout-tab-payment">
-                        <form action="#" class="checkout__panel-form sell__form checkout__form checkout__form_payment"
-                            novalidate>
-                            <div class="checkout__panel-form-checkboxes">
-                                <label class="checkout__form-checkbox checkout__form-checkbox_round"
-                                    for="checkout-form-payment-bank-transfer">
-                                    <input class="checkout__form-checkbox-input" type="radio"
-                                        id="checkout-form-payment-bank-transfer" name="checkout-form-payment-method"
-                                        value="bank-transfer" required>
-                                    <span class="checkout__form-checkbox-control" aria-hidden="true"></span>
-                                    <span class="checkout__form-checkbox-text">Direct Bank Transfer</span>
-                                </label>
-                                <label class="checkout__form-checkbox checkout__form-checkbox_round"
-                                    for="checkout-form-payment-credit-card">
-                                    <input class="checkout__form-checkbox-input" type="radio"
-                                        id="checkout-form-payment-credit-card" name="checkout-form-payment-method"
-                                        value="credit-card"
-                                        required>
-                                    <span class="checkout__form-checkbox-control" aria-hidden="true"></span>
-                                    <span class="checkout__form-checkbox-text checkout__form-checkbox-text_flex">Credit
-                                        Card
-                                        <img class="checkout__form-checkbox-text-icon" src="/icons/visa.svg"
-                                            alt="image not found" width="24" height="24" aria-hidden="true">
-                                        <img class="checkout__form-checkbox-text-icon" src="/icons/mastercard.svg"
-                                            alt="image not found" width="24" height="24" aria-hidden="true">
-                                    </span>
-                                </label>
-                            </div>
+                        <div class="checkout__panel-form-checkboxes">
+                            <label class="checkout__form-checkbox checkout__form-checkbox_round"
+                                for="checkout-form-payment-bank-transfer">
+                                <input class="checkout__form-checkbox-input" type="radio"
+                                    id="checkout-form-payment-bank-transfer" name="checkout-form-payment-method"
+                                    value="bank-transfer" required checked>
+                                <span class="checkout__form-checkbox-control" aria-hidden="true"></span>
+                                <span class="checkout__form-checkbox-text">Direct Bank Transfer</span>
+                            </label>
+                            <label class="checkout__form-checkbox checkout__form-checkbox_round"
+                                for="checkout-form-payment-credit-card">
+                                <input class="checkout__form-checkbox-input" type="radio"
+                                    id="checkout-form-payment-credit-card" name="checkout-form-payment-method"
+                                    value="credit-card" required>
+                                <span class="checkout__form-checkbox-control" aria-hidden="true"></span>
+                                <span class="checkout__form-checkbox-text checkout__form-checkbox-text_flex">Credit
+                                    Card
+                                    <img class="checkout__form-checkbox-text-icon" src="/icons/visa.svg"
+                                        alt="image not found" width="24" height="24" aria-hidden="true">
+                                    <img class="checkout__form-checkbox-text-icon" src="/icons/mastercard.svg"
+                                        alt="image not found" width="24" height="24" aria-hidden="true">
+                                </span>
+                            </label>
+                        </div>
+                        <div class="checkout__panel-inner-tab" data-checkout-payment-panel="bank-transfer">
                             <div class="checkout__panel-buttons" role="tablist" aria-label="Checkout account type">
                                 <button type="button" class="checkout__panel-button active" role="tab"
-                                    aria-selected="true" data-checkout-tab="new-customer">Paying From Canada</button>
+                                    aria-selected="true" data-checkout-tab="new-customer">Paying From
+                                    Canada</button>
                                 <button type="button" class="checkout__panel-button" role="tab" aria-selected="false"
-                                    tabindex="-1" data-checkout-tab="account">Paying From Another Country</button>
+                                    tabindex="-1" data-checkout-tab="account">Paying From
+                                    Another Country</button>
                             </div>
                             <div class="checkout__panel-tab " role="tabpanel" tabindex="0"
                                 data-checkout-panel="new-customer">
                                 <div class="checkout__panel-tab-details">
                                     <h4 class="checkout__panel-tab-title">Bank Transfer Details</h4>
-                                    <p class="checkout__panel-tab-description">Please use the following details to send
+                                    <p class="checkout__panel-tab-description">Please use the following details to
+                                        send
                                         your payment. <br> You can pay via Interac e-Transfer or direct EFT bank
                                         transfer.</p>
                                 </div>
@@ -305,15 +306,16 @@
                                     <button type="button"
                                         class="checkout__panel-tab-button btn btn_primary-white">Request an
                                         Invoice</button>
-                                    <button type="button"
-                                        class="checkout__panel-tab-button btn btn_primary">Payment Sent</button>
+                                    <button type="button" class="checkout__panel-tab-button btn btn_primary">Payment
+                                        Sent</button>
                                 </div>
                             </div>
                             <div class="checkout__panel-tab " role="tabpanel" tabindex="0"
                                 data-checkout-panel="account">
                                 <div class="checkout__panel-tab-details">
                                     <h4 class="checkout__panel-tab-title">Bank Transfer Details</h4>
-                                    <p class="checkout__panel-tab-description">Please use the following details to send
+                                    <p class="checkout__panel-tab-description">Please use the following details to
+                                        send
                                         your payment. <br> You can pay via Interac e-Transfer or direct EFT bank
                                         transfer.</p>
                                 </div>
@@ -355,11 +357,94 @@
                                     <button type="button"
                                         class="checkout__panel-tab-button btn btn_primary-white">Request an
                                         Invoice</button>
-                                    <button type="button"
-                                        class="checkout__panel-tab-button btn btn_primary">Payment Sent</button>
+                                    <button type="button" class="checkout__panel-tab-button btn btn_primary">Payment
+                                        Sent</button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
+                        <div class="checkout__panel-inner-tab" data-checkout-payment-panel="credit-card" hidden>
+                            <div class="checkout__panel-inner-tab-saved-cards">
+                                <button type="button" class="checkout__panel-inner-tab-saved-card"
+                                    aria-pressed="false">
+                                    <div class="checkout__panel-inner-tab-saved-card-img">
+                                        <img src="/images/mastercard.png" alt="image not found" width="100"
+                                            height="100">
+                                    </div>
+                                    <div class="checkout__panel-inner-tab-saved-card-content">
+                                        <span>**** **** **** 4894</span>
+                                        <div class="checkout__panel-inner-tab-saved-card-content-row">
+                                            <span>John Doe</span>
+                                            <span class="divider"></span>
+                                            <span>Expires <span>02/2027</span></span>
+                                        </div>
+                                    </div>
+                                </button>
+                                <button type="button" class="checkout__panel-inner-tab-saved-card"
+                                    aria-pressed="false">
+                                    <div class="checkout__panel-inner-tab-saved-card-img">
+                                        <img src="/images/mastercard.png" alt="image not found" width="100"
+                                            height="100">
+                                    </div>
+                                    <div class="checkout__panel-inner-tab-saved-card-content">
+                                        <span>**** **** **** 4894</span>
+                                        <div class="checkout__panel-inner-tab-saved-card-content-row">
+                                            <span>John Doe</span>
+                                            <span class="divider"></span>
+                                            <span>Expires <span>02/2027</span></span>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                            <form action="#" class="checkout__panel-inner-tab-form sell__form credit-card__form"
+                                novalidate>
+                                <div class="checkout__panel-inner-tab-form-row">
+                                    <label class="checkout__panel-inner-tab-form-label"
+                                        for="checkout-form-payment-credit-card-number">
+                                        Card Number
+                                        <input type="text" id="checkout-form-payment-credit-card-number"
+                                            name="checkout-form-payment-credit-card-number"
+                                            placeholder="Enter your credit card number" required>
+                                    </label>
+                                </div>
+                                <div class="checkout__panel-inner-tab-form-row">
+                                    <label class="checkout__panel-inner-tab-form-label"
+                                        for="checkout-form-payment-credit-card-holder">
+                                        Card Holder
+                                        <input type="text" id="checkout-form-payment-credit-card-holder"
+                                            name="checkout-form-payment-credit-card-holder"
+                                            placeholder="Enter name on card" required>
+                                    </label>
+                                </div>
+                                <div class="checkout__panel-form-row">
+                                    <label class="checkout__panel-form-label checkout__form-label"
+                                        for="checkout-form-payment-credit-card-expiration-date">
+                                        Expiration Date
+                                        <input type="text" id="checkout-form-payment-credit-card-expiration-date"
+                                            name="checkout-form-payment-credit-card-expiration-date"
+                                            placeholder="Enter your expiration date" required>
+                                    </label>
+                                    <label class="checkout__panel-form-label checkout__form-label"
+                                        for="checkout-form-payment-credit-card-cvc">
+                                        CVC
+                                        <input type="text" id="checkout-form-payment-credit-card-cvc"
+                                            name="checkout-form-payment-credit-card-cvc" placeholder="Enter your CVC"
+                                            required inputmode="numeric" maxlength="4" autocomplete="cc-csc">
+                                    </label>
+                                </div>
+                                <label class="checkout__form-checkbox checkout__form-checkbox_round"
+                                    for="checkout-form-payment-save-card">
+                                    <input class="checkout__form-checkbox-input" type="radio"
+                                        id="checkout-form-payment-save-card" name="checkout-form-payment-save-card"
+                                        value="save-card" required>
+                                    <span class="checkout__form-checkbox-control" aria-hidden="true"></span>
+                                    <span class="checkout__form-checkbox-text">Save Card</span>
+                                </label>
+                                <!-- TODO: Change button type to submit -->
+                                <button type="button"
+                                    class="checkout__panel-inner-tab-form-button btn btn_primary">Place
+                                    Order</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

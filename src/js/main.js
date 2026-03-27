@@ -36,7 +36,11 @@ import {
 } from './modules/utils.js';
 import { initFaqAccordion, initProductFaqTabs } from './modules/faq.js';
 import { initCheckoutTabs } from './modules/checkout.js';
-import { initCheckoutStepsNavigation } from './modules/checkout-steps.js';
+import {
+  initCheckoutStepsNavigation,
+  initCheckoutPaymentMethodPanels,
+  initCheckoutSavedCardButtons,
+} from './modules/checkout-steps.js';
 
 // Initialize all modules
 initMobileMenu();
@@ -60,6 +64,8 @@ initYearProductionFormSteps();
 initFaqAccordion();
 initProductFaqTabs();
 initCheckoutTabs();
+initCheckoutPaymentMethodPanels();
+initCheckoutSavedCardButtons();
 initCheckoutStepsNavigation();
 initViewportActiveSections();
 initHeroBannerAboveFooter();
