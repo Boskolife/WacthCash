@@ -1,0 +1,227 @@
+.section-request-return {
+  padding: 80px 0;
+}
+
+.request-return {
+  max-width: 560px;
+  width: 100%;
+  margin-inline: auto;
+  text-align: center;
+
+  &__inner {
+    max-width: 600px;
+    width: 100%;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  &__title {
+    color: map-get($brand, 500);
+    @include adaptive-value('font-size', 48, 32, 1);
+    @include adaptive-value('margin-bottom', 20, 12, 1);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  &__description {
+    @include adaptive-value('font-size', 24, 16, 1);
+    @include px-to-percent-line-height(32px, 24px);
+    color: map-get($brand, 400);
+    max-width: 450px;
+    width: 100%;
+    margin-inline: auto;
+    margin-bottom: 40px;
+  }
+
+  &__form {
+    text-align: start;
+  }
+
+  &__fieldset {
+    margin: 0 0 28px;
+    padding: 0;
+    border: none;
+    min-width: 0;
+  }
+
+  &__legend {
+    display: block;
+    width: 100%;
+    margin: 0 0 16px;
+    padding: 0;
+    color: map-get($brand, 500);
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  &__radios {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__radio {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    color: map-get($brand, 500);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.4;
+
+    &:focus-within {
+      outline: none;
+    }
+  }
+
+  &__radio-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+    opacity: 0;
+  }
+
+  &__radio-input:focus-visible + .request-return__radio-control {
+    outline: 2px solid map-get($brand, 500);
+    outline-offset: 3px;
+  }
+
+  &__radio-control {
+    position: relative;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    border: 1px solid map-get($brand, 500);
+    border-radius: 50%;
+    background-color: map-get($neutral, 100);
+    box-sizing: border-box;
+  }
+
+  &__radio-input:checked + .request-return__radio-control::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    margin: -4px 0 0 -4px;
+    border-radius: 50%;
+    background-color: map-get($brand, 500);
+  }
+
+  &__field {
+    @include adaptive-value('margin-bottom', 60, 40, 1);
+  }
+
+  &__label {
+    display: block;
+    width: 100%;
+    margin: 0 0 16px;
+    padding: 0;
+    color: map-get($brand, 500);
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  &__textarea {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid map-get($neutral, 500);
+    background-color: map-get($neutral, 100);
+    color: map-get($brand, 500);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+    resize: vertical;
+    min-height: 80px;
+    transition: border-color 0.2s ease;
+
+    &::placeholder {
+      color: map-get($neutral, 600);
+    }
+
+    &:hover {
+      border-color: map-get($neutral, 600);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: map-get($brand, 500);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    gap: 12px;
+
+    @include media('>=phone') {
+      gap: 16px;
+    }
+  }
+
+  &__btn {
+    flex: 1;
+    min-width: min(100%, 200px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 20px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease,
+      opacity 0.2s ease;
+    cursor: pointer;
+    border-style: solid;
+    border-width: 2px;
+    font-family: inherit;
+    box-sizing: border-box;
+
+    &--cancel {
+      background-color: map-get($brand, 500);
+      border-color: #c9a227;
+      color: map-get($neutral, 100);
+
+      &:hover {
+        opacity: 0.92;
+      }
+
+      &:focus-visible {
+        outline: 2px solid map-get($brand, 500);
+        outline-offset: 3px;
+      }
+    }
+
+    &--submit {
+      border-color: transparent;
+      background: linear-gradient(90deg, #a17c36 0%, #fdeaa5 50%, #a17c36 100%);
+      color: map-get($brand, 500);
+
+      &:hover {
+        filter: brightness(1.03);
+      }
+
+      &:focus-visible {
+        outline: 2px solid map-get($brand, 500);
+        outline-offset: 3px;
+      }
+    }
+  }
+}
