@@ -119,14 +119,31 @@
     background-color: transparent;
     padding: 0;
     margin: 0;
+    border-radius: 50%;
     cursor: pointer;
     width: 48px;
     height: 48px;
 
-    img {
+    img,
+    svg {
       width: 24px;
       height: 24px;
       object-fit: contain;
+    }
+
+    svg {
+      display: block;
+      flex-shrink: 0;
+    }
+
+    &--profile {
+      text-decoration: none;
+      color: map-get($brand, 400);
+
+      &.is-active {
+        background-color: map-get($brand, 500);
+        color: map-get($neutral, 100);
+      }
     }
   }
 

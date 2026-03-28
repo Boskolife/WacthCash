@@ -84,6 +84,7 @@ const THANKS_PAYMENT_COPY_DONE_MS = 2000;
 
 /**
  * Profile area: mark active sidebar item from body[data-profile-nav] vs link[data-profile-nav-target].
+ * Also marks the header profile icon when any profile page is open (body[data-profile-nav]).
  */
 export function initProfileSidebarNav() {
   const navKey = document.body?.dataset?.profileNav;
@@ -94,6 +95,12 @@ export function initProfileSidebarNav() {
       el.closest('.section-profile__sidebar-menu-item')?.classList.add('active');
     }
   });
+
+  const profileHeaderLink = document.querySelector('.header__action-button--profile');
+  if (profileHeaderLink) {
+    profileHeaderLink.classList.add('is-active');
+    profileHeaderLink.setAttribute('aria-current', 'page');
+  }
 }
 
 /**
