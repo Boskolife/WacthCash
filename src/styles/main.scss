@@ -103,3 +103,9 @@ $media-expressions: (
 
 // Login Page
 @import 'layout/auth';
+
+// Profile Page
+@import 'layout/profile';
+
+// Profile Offer Status Tracker
+@import 'profile/offer-status-tracker';
