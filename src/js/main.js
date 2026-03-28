@@ -34,6 +34,9 @@ import {
   initViewportActiveSections,
   initHeroBannerAboveFooter,
   initThanksPaymentCopyOrderId,
+  initCopyToClipboard,
+  initShippingTrackingDropdowns,
+  initProfileSidebarNav,
 } from './modules/utils.js';
 import { initFaqAccordion, initProductFaqTabs } from './modules/faq.js';
 import { initCheckoutTabs } from './modules/checkout.js';
@@ -72,3 +75,6 @@ initCheckoutStepsNavigation();
 initViewportActiveSections();
 initHeroBannerAboveFooter();
 initThanksPaymentCopyOrderId();
+initCopyToClipboard();
+initShippingTrackingDropdowns();
+initProfileSidebarNav();

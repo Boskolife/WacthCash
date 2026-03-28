@@ -98,10 +98,10 @@ const handlebarsReloadPlugin = () => {
     configureServer(server) {
       const templatesDir = resolve(__dirname, 'src/templates');
       const sectionsDir = resolve(__dirname, 'src/sections');
-      const profileDir = resolve(__dirname, 'src/profile');
+      const profilePanelsDir = resolve(__dirname, 'src/profile/panels');
 
-      // Explicitly watch templates and sections directories
-      server.watcher.add([templatesDir, sectionsDir, profileDir]);
+      // Explicitly watch templates, sections, and profile panel partials
+      server.watcher.add([templatesDir, sectionsDir, profilePanelsDir]);
     },
   };
 };
@@ -116,7 +116,7 @@ export default defineConfig({
       partialDirectory: [
         resolve(__dirname, 'src/templates'),
         resolve(__dirname, 'src/sections'),
-        resolve(__dirname, 'src/profile'),
+        resolve(__dirname, 'src/profile/panels'),
       ],
       reloadOnPartialChange: true,
       context: { base },

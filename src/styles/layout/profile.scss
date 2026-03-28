@@ -5,12 +5,22 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 40px;
+    @include adaptive-value('gap', 40, 20, 1);
+
+    @include media('<tablet') {
+      flex-direction: column;
+      row-gap: 40px;
+    }
   }
 
   &__sidebar {
     max-width: 390px;
     width: 30%;
+
+    @include media('<tablet') {
+      max-width: 100%;
+      width: 100%;
+    }
 
     &-title {
       color: map-get($brand, 500);
@@ -37,7 +47,7 @@
     }
 
     &-menu-item {
-        width: max-content;
+      width: max-content;
       &.active {
         .section-profile__sidebar-menu-link {
           color: map-get($brand, 500);
@@ -64,9 +74,12 @@
       font-weight: 600;
       color: map-get($neutral, 700);
       text-align: start;
+      text-decoration: none;
+      cursor: pointer;
       transition: color 0.3s ease;
 
       svg {
+        flex-shrink: 0;
         transition: color 0.3s ease;
         width: 24px;
         height: 24px;
@@ -76,5 +89,31 @@
 
   &__content {
     width: 70%;
+
+    @include media('<tablet') {
+      width: 100%;
+    }
+  }
+}
+
+.profile-panel {
+  &__inner {
+    text-align: start;
+  }
+
+  &__title {
+    font-weight: 700;
+    @include adaptive-value('font-size', 32, 22, 1);
+    color: map-get($brand, 500);
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  &__text {
+    font-size: 16px;
+    font-weight: 500;
+    color: map-get($brand, 400);
+    @include px-to-percent-line-height(24px, 16px);
+    max-width: 520px;
   }
 }

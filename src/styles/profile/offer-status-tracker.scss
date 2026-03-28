@@ -1,11 +1,11 @@
-.offer-status-tracker-empty {
+.empty {
   height: 430px;
   max-width: 830px;
   width: 100%;
   margin-left: auto;
   border-radius: 40px;
   border: 1px solid map-get($brand, 500);
-  padding: 40px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,6 +53,11 @@
       justify-content: space-between;
       gap: 12px;
       margin-bottom: 16px;
+
+      @include media('<tablet') {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
 
     &-header-left-col {
@@ -111,6 +116,10 @@
       flex-direction: column;
       align-items: flex-end;
       gap: 4px;
+
+      @include media('<tablet') {
+        align-items: flex-start;
+      }
     }
 
     &-price {
@@ -133,6 +142,10 @@
       align-items: center;
       gap: 16px;
       margin-top: 24px;
+
+      @include media('<tablet') {
+        flex-direction: column;
+      }
     }
 
     &-button {

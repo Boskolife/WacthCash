@@ -1,0 +1,219 @@
+<div class="shipping-tracking">
+    <div class="shipping-tracking__header">
+        <form action="#" class="shipping-tracking__form sell__form">
+            <label class="shipping-tracking__form-label search-form--label" for="shipping-tracking-form-order-id">
+                <img class="shipping-tracking__form-icon" src="/icons/search-2.svg" alt="image not found" width="24"
+                    height="24" aria-hidden="true">
+                <input type="search" id="shipping-tracking-form-order-id" name="shipping-tracking-form-order-id"
+                    placeholder="Search...">
+                <!-- TODO: change button to input type="submit" -->
+                <button type="button" class="shipping-tracking__form-button">
+                    <img src="/icons/arrow-right-white.svg" alt="image not found" width="24" height="24"
+                        aria-hidden="true">
+                </button>
+            </label>
+            <label class="shipping-tracking__form-label" for="shipping-tracking-form-delivery-status">
+                Delivery status
+                <div class="custom-select" data-custom-select>
+                    <select id="shipping-tracking-form-delivery-status" name="shipping-tracking-form-delivery-status">
+                        <option value="all" selected>All statuses</option>
+                        <option value="pending">Pending</option>
+                        <option value="in-transit">In transit</option>
+                        <option value="delivered">Delivered</option>
+                    </select>
+                    <button type="button" class="custom-select__button" aria-haspopup="listbox" aria-expanded="false"
+                        aria-labelledby="shipping-tracking-form-delivery-status">
+                        <span class="custom-select__selected">All statuses</span>
+                        <svg class="custom-select__arrow" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <ul class="custom-select__dropdown" role="listbox"
+                        aria-labelledby="shipping-tracking-form-delivery-status">
+                        <li class="custom-select__option" role="option" data-value="all" tabindex="-1"
+                            aria-selected="true">All statuses</li>
+                        <li class="custom-select__option" role="option" data-value="pending" tabindex="-1"
+                            aria-selected="false">Pending</li>
+                        <li class="custom-select__option" role="option" data-value="in-transit" tabindex="-1"
+                            aria-selected="false">In transit</li>
+                        <li class="custom-select__option" role="option" data-value="delivered" tabindex="-1"
+                            aria-selected="false">Delivered</li>
+                    </ul>
+                </div>
+            </label>
+            <label class="shipping-tracking__form-label" for="shipping-tracking-form-order-date">
+                Order date
+                <div class="custom-select" data-custom-select>
+                    <select id="shipping-tracking-form-order-date" name="shipping-tracking-form-order-date">
+                        <option value="all" selected>All time</option>
+                        <option value="7d">Last 7 days</option>
+                        <option value="30d">Last 30 days</option>
+                        <option value="90d">Last 3 months</option>
+                        <option value="year">This year</option>
+                    </select>
+                    <button type="button" class="custom-select__button" aria-haspopup="listbox" aria-expanded="false"
+                        aria-labelledby="shipping-tracking-form-order-date">
+                        <span class="custom-select__selected">All time</span>
+                        <svg class="custom-select__arrow" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <ul class="custom-select__dropdown" role="listbox"
+                        aria-labelledby="shipping-tracking-form-order-date">
+                        <li class="custom-select__option" role="option" data-value="all" tabindex="-1"
+                            aria-selected="true">All time</li>
+                        <li class="custom-select__option" role="option" data-value="7d" tabindex="-1"
+                            aria-selected="false">Last 7 days</li>
+                        <li class="custom-select__option" role="option" data-value="30d" tabindex="-1"
+                            aria-selected="false">Last 30 days</li>
+                        <li class="custom-select__option" role="option" data-value="90d" tabindex="-1"
+                            aria-selected="false">Last 3 months</li>
+                        <li class="custom-select__option" role="option" data-value="year" tabindex="-1"
+                            aria-selected="false">This year</li>
+                    </ul>
+                </div>
+            </label>
+        </form>
+    </div>
+    <div class="shipping-tracking__inner">
+        <div class="shipping-tracking__item" data-shipping-tracking-item>
+            <div class="shipping-tracking__item-main">
+                <div class="shipping-tracking__item-left-col">
+                    <div class="shipping-tracking__item-title-wrapper">
+                        <h3 class="shipping-tracking__item-title">Rolex Submariner Date</h3>
+                        <span class="shipping-tracking__item-order-id pending">#WC_150989</span>
+                    </div>
+                    <div class="shipping-tracking__item-info-wrapper">
+                        <div class="shipping-tracking__item-info-row">
+                            <span>Estimated Delivery:</span>
+                            <span>Nov 15, 2025</span>
+                        </div>
+                        <div class="shipping-tracking__item-info-row">
+                            <span>Carrier:</span>
+                            <span>FedEx</span>
+                        </div>
+                        <div class="shipping-tracking__item-info-row">
+                            <span>Tracking Number:</span>
+                            <button type="button" class="shipping-tracking__copy-trigger" data-copy-to-clipboard
+                                data-copy-text="#CC230989W903"
+                                aria-label="Copy tracking number to clipboard">
+                                <span>#CC230989W903</span>
+                                <img src="/icons/copy.svg" alt="" width="16" height="16" aria-hidden="true">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="shipping-tracking__item-right-col">
+                    <div class="shipping-tracking__item-status pending">
+                        Pending
+                    </div>
+                    <button type="button" class="shipping-tracking__item-button" data-shipping-tracking-toggle
+                        aria-expanded="false" aria-controls="shipping-tracking-panel-1"
+                        aria-label="Show or hide tracking updates">
+                        <img src="/icons/chevron-down-2.svg" alt="" width="24" height="24" aria-hidden="true">
+                    </button>
+                </div>
+            </div>
+            <div class="shipping-tracking__item-dropdown" id="shipping-tracking-panel-1"
+                data-shipping-tracking-panel hidden>
+                <div class="shipping-tracking__item-dropdown-inner">
+                    {{> shipping-tracking-updates }}
+                </div>
+            </div>
+        </div>
+        <div class="shipping-tracking__item" data-shipping-tracking-item>
+            <div class="shipping-tracking__item-main">
+                <div class="shipping-tracking__item-left-col">
+                    <div class="shipping-tracking__item-title-wrapper">
+                        <h3 class="shipping-tracking__item-title">Rolex Submariner Date</h3>
+                        <span class="shipping-tracking__item-order-id pending">#WC_150989</span>
+                    </div>
+                    <div class="shipping-tracking__item-info-wrapper">
+                        <div class="shipping-tracking__item-info-row">
+                            <span>Estimated Delivery:</span>
+                            <span>Nov 15, 2025</span>
+                        </div>
+                        <div class="shipping-tracking__item-info-row">
+                            <span>Carrier:</span>
+                            <span>FedEx</span>
+                        </div>
+                        <div class="shipping-tracking__item-info-row">
+                            <span>Tracking Number:</span>
+                            <button type="button" class="shipping-tracking__copy-trigger" data-copy-to-clipboard
+                                data-copy-text="#CC230989W903"
+                                aria-label="Copy tracking number to clipboard">
+                                <span>#CC230989W903</span>
+                                <img src="/icons/copy.svg" alt="" width="16" height="16" aria-hidden="true">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="shipping-tracking__item-right-col">
+                    <div class="shipping-tracking__item-status warning">
+                        Confirmed
+                    </div>
+                    <button type="button" class="shipping-tracking__item-button" data-shipping-tracking-toggle
+                        aria-expanded="false" aria-controls="shipping-tracking-panel-2"
+                        aria-label="Show or hide tracking updates">
+                        <img src="/icons/chevron-down-2.svg" alt="" width="24" height="24" aria-hidden="true">
+                    </button>
+                </div>
+            </div>
+            <div class="shipping-tracking__item-dropdown" id="shipping-tracking-panel-2"
+                data-shipping-tracking-panel hidden>
+                <div class="shipping-tracking__item-dropdown-inner">
+                    {{> shipping-tracking-updates }}
+                </div>
+            </div>
+        </div>
+        <div class="shipping-tracking__item" data-shipping-tracking-item>
+            <div class="shipping-tracking__item-main">
+                <div class="shipping-tracking__item-left-col">
+                    <div class="shipping-tracking__item-title-wrapper">
+                        <h3 class="shipping-tracking__item-title">Rolex Submariner Date</h3>
+                        <span class="shipping-tracking__item-order-id pending">#WC_150989</span>
+                    </div>
+                    <div class="shipping-tracking__item-info-wrapper">
+                        <div class="shipping-tracking__item-info-row">
+                            <span>Estimated Delivery:</span>
+                            <span>Nov 15, 2025</span>
+                        </div>
+                        <div class="shipping-tracking__item-info-row">
+                            <span>Carrier:</span>
+                            <span>FedEx</span>
+                        </div>
+                        <div class="shipping-tracking__item-info-row">
+                            <span>Tracking Number:</span>
+                            <button type="button" class="shipping-tracking__copy-trigger" data-copy-to-clipboard
+                                data-copy-text="#CC230989W903"
+                                aria-label="Copy tracking number to clipboard">
+                                <span>#CC230989W903</span>
+                                <img src="/icons/copy.svg" alt="" width="16" height="16" aria-hidden="true">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="shipping-tracking__item-right-col">
+                    <div class="shipping-tracking__item-status rejected">
+                        Rejected
+                    </div>
+                    <button type="button" class="shipping-tracking__item-button" data-shipping-tracking-toggle
+                        aria-expanded="false" aria-controls="shipping-tracking-panel-3"
+                        aria-label="Show or hide tracking updates">
+                        <img src="/icons/chevron-down-2.svg" alt="" width="24" height="24" aria-hidden="true">
+                    </button>
+                </div>
+            </div>
+            <div class="shipping-tracking__item-dropdown" id="shipping-tracking-panel-3"
+                data-shipping-tracking-panel hidden>
+                <div class="shipping-tracking__item-dropdown-inner">
+                    {{> shipping-tracking-updates }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

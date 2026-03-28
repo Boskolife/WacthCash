@@ -1,0 +1,411 @@
+.shipping-tracking {
+  &__header {
+    margin-bottom: 40px;
+  }
+
+  &__form {
+    gap: 12px;
+    flex-direction: row;
+    align-items: flex-end;
+
+    @include media('<desktop') {
+      flex-direction: column;
+    }
+  }
+
+  &__form-label {
+    width: 100%;
+  }
+
+  .search-form--label {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 4px;
+    height: 51px;
+    padding: 8px 12px;
+    border-radius: 12px;
+    border: 1px solid #d7d7da;
+
+    input {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      border: none;
+      border-radius: 0;
+    }
+  }
+
+  &__form-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    object-position: center;
+    margin-right: 4px;
+  }
+
+  &__form-button {
+    min-width: 32px;
+    min-height: 32px;
+    padding: 0;
+    margin: 0 0 0 auto;
+    border: none;
+    background-color: map-get($brand, 500);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 16px;
+    border-radius: 16px;
+    border: 1px solid map-get($neutral, 500);
+
+    &.is-open {
+      .shipping-tracking__item-button img {
+        transform: rotate(180deg);
+      }
+    }
+
+    &-main {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 12px;
+
+      @include media('<tablet') {
+        flex-direction: column;
+      }
+    }
+
+    &-dropdown {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid map-get($neutral, 400);
+    }
+
+    &-dropdown-inner {
+      padding: 20px 20px 8px;
+      border-radius: 12px;
+      border: 1px solid map-get($neutral, 500);
+      background-color: map-get($neutral, 100);
+    }
+
+    &-title-wrapper {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    &-title {
+      font-size: 20px;
+      font-weight: 500;
+      color: map-get($brand, 500);
+      text-transform: none;
+    }
+
+    &-order-id,
+    &-status {
+      font-size: 16px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 999px;
+
+      &.pending {
+        color: map-get($brand, 500);
+        background-color: map-get($neutral, 300);
+      }
+
+      &.warning {
+        color: map-get($yellow, 600);
+        background-color: map-get($yellow, 100);
+      }
+
+      &.rejected {
+        color: map-get($red, 500);
+        background-color: map-get($red, 100);
+      }
+    }
+
+    &-info-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    &-info-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      span {
+        &:first-child {
+          font-size: 14px;
+          font-weight: 500;
+          color: map-get($neutral, 700);
+        }
+        &:last-child {
+          font-size: 16px;
+          font-weight: 600;
+          color: map-get($brand, 500);
+        }
+      }
+    }
+
+    &-right-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 12px;
+
+      @include media('<tablet') {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    &-button {
+      padding: 0;
+      margin: 0;
+      border: 1px solid map-get($brand, 500);
+      background-color: transparent;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: border-color 0.2s ease;
+
+      &:hover {
+        border-color: map-get($brand, 400);
+      }
+
+      &:focus-visible {
+        outline: 2px solid map-get($brand, 500);
+        outline-offset: 2px;
+      }
+
+      img {
+        width: 18px;
+        height: 18px;
+        object-fit: contain;
+        object-position: center;
+        transition: transform 0.25s ease;
+      }
+    }
+  }
+
+  &__copy-trigger {
+    border: none;
+    background-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+
+    border-radius: 999px;
+
+    cursor: pointer;
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease;
+
+    &:hover {
+      background-color: map-get($brand, 100);
+    }
+
+    &:focus-visible {
+      outline: 2px solid map-get($brand, 500);
+      outline-offset: 2px;
+    }
+
+    &.is-copied {
+        span{
+            color: map-get($neutral, 700) !important;
+        }
+    }
+
+    span {
+      font-size: 16px;
+      font-weight: 600 !important;
+      color: map-get($brand, 500) !important;
+    }
+
+    img {
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+    }
+  }
+}
+
+.tracking-updates {
+  &__title {
+    margin: 0 0 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: map-get($brand, 500);
+    letter-spacing: -0.02em;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 32px 1fr auto;
+    gap: 12px 16px;
+    align-items: start;
+    padding-bottom: 28px;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    &:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 28px;
+      bottom: 0;
+      width: 2px;
+      border-radius: 1px;
+    }
+
+    &--completed:not(:last-child)::after {
+      background-color: map-get($brand, 500);
+    }
+
+    &--current:not(:last-child)::after,
+    &--pending:not(:last-child)::after {
+      background-color: map-get($neutral, 400);
+    }
+  }
+
+  &__track {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    padding-top: 2px;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    svg {
+      display: block;
+    }
+
+    &--completed {
+      color: map-get($brand, 500);
+    }
+
+    &--current {
+      color: map-get($brand, 500);
+    }
+
+    &--pending {
+      color: map-get($neutral, 500);
+
+      svg circle:last-of-type {
+        fill: map-get($neutral, 400);
+      }
+    }
+  }
+
+  &__body {
+    min-width: 0;
+  }
+
+  &__step-title {
+    margin: 0 0 6px;
+    font-size: 16px;
+    font-weight: 700;
+    color: map-get($brand, 500);
+    letter-spacing: -0.01em;
+  }
+
+  &__desc {
+    margin: 0 0 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: map-get($neutral, 700);
+    @include px-to-percent-line-height(20px, 14px);
+  }
+
+  &__location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: map-get($neutral, 700);
+  }
+
+  &__pin {
+    flex-shrink: 0;
+    color: map-get($neutral, 600);
+  }
+
+  &__time {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  &__date,
+  &__clock {
+    font-size: 13px;
+    font-weight: 500;
+    color: map-get($neutral, 700);
+  }
+
+  &__step--pending {
+    .tracking-updates__step-title,
+    .tracking-updates__desc,
+    .tracking-updates__date,
+    .tracking-updates__clock,
+    .tracking-updates__location {
+      color: map-get($neutral, 600);
+    }
+
+    .tracking-updates__pin {
+      color: map-get($neutral, 500);
+    }
+  }
+}

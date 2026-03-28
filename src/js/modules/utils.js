@@ -83,6 +83,20 @@ export function initHeroBannerAboveFooter() {
 const THANKS_PAYMENT_COPY_DONE_MS = 2000;
 
 /**
+ * Profile area: mark active sidebar item from body[data-profile-nav] vs link[data-profile-nav-target].
+ */
+export function initProfileSidebarNav() {
+  const navKey = document.body?.dataset?.profileNav;
+  if (!navKey) return;
+
+  document.querySelectorAll('[data-profile-nav-target]').forEach((el) => {
+    if (el.dataset.profileNavTarget === navKey) {
+      el.closest('.section-profile__sidebar-menu-item')?.classList.add('active');
+    }
+  });
+}
+
+/**
  * Thanks payment page: copy order ID from visible text (button text content) to clipboard.
  */
 export function initThanksPaymentCopyOrderId() {
@@ -114,4 +128,65 @@ export function initThanksPaymentCopyOrderId() {
   }
 
   btn.addEventListener('click', copy);
+}
+
+/**
+ * Generic copy-to-clipboard for buttons with [data-copy-to-clipboard].
+ * Uses data-copy-text when set; otherwise falls back to trimmed textContent.
+ */
+export function initCopyToClipboard() {
+  const buttons = document.querySelectorAll('[data-copy-to-clipboard]');
+  if (!buttons.length) return;
+
+  buttons.forEach((el) => {
+    if (!(el instanceof HTMLButtonElement)) return;
+
+    const defaultLabel = el.getAttribute('aria-label') || 'Copy to clipboard';
+    let revertTimer = null;
+
+    async function copy() {
+      const text =
+        el.dataset.copyText?.trim() ?? el.textContent?.trim() ?? '';
+      if (!text) return;
+
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        return;
+      }
+
+      el.classList.add('is-copied');
+      el.setAttribute('aria-label', 'Copied to clipboard');
+
+      if (revertTimer) window.clearTimeout(revertTimer);
+      revertTimer = window.setTimeout(() => {
+        el.classList.remove('is-copied');
+        el.setAttribute('aria-label', defaultLabel);
+        revertTimer = null;
+      }, THANKS_PAYMENT_COPY_DONE_MS);
+    }
+
+    el.addEventListener('click', copy);
+  });
+}
+
+/**
+ * Shipping tracking list: expand/collapse per-item tracking timeline panel.
+ */
+export function initShippingTrackingDropdowns() {
+  const items = document.querySelectorAll('[data-shipping-tracking-item]');
+  if (!items.length) return;
+
+  items.forEach((item) => {
+    const btn = item.querySelector('[data-shipping-tracking-toggle]');
+    const panel = item.querySelector('[data-shipping-tracking-panel]');
+    if (!btn || !panel) return;
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = item.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      panel.hidden = !open;
+    });
+  });
 }
