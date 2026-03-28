@@ -11,6 +11,7 @@ import {
   initContactModal,
   initForgotPasswordPopup,
   initReturnRequestSuccessPopup,
+  initSignOutPopup,
   initMobileMenu,
 } from './modules/modals.js';
 import {
@@ -56,6 +57,7 @@ initMobileMenu();
 initContactModal();
 initForgotPasswordPopup();
 initReturnRequestSuccessPopup();
+initSignOutPopup();
 updateCurrentYear();
 removeVideoControls();
 initResponsiveVideoSources();

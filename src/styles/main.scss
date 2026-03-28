@@ -110,6 +110,9 @@ $media-expressions: (
 // Profile Page
 @import 'layout/profile';
 
+// Profile sign out confirmation
+@import 'layout/sign-out-popup';
+
 // Profile Offer Status Tracker
 @import 'profile/offer-status-tracker';
 

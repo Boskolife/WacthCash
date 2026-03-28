@@ -4,6 +4,7 @@ import {
   CONTACT_MODAL_OPEN_CLASS,
   FORGOT_PASSWORD_POPUP_OPEN_CLASS,
   RETURN_REQUEST_SUCCESS_POPUP_OPEN_CLASS,
+  SIGN_OUT_POPUP_OPEN_CLASS,
   BODY_MODAL_OPEN_CLASS,
 } from './constants.js';
 
@@ -278,6 +279,111 @@ export function initReturnRequestSuccessPopup() {
     if (
       e.key === 'Escape' &&
       popup.classList.contains(RETURN_REQUEST_SUCCESS_POPUP_OPEN_CLASS)
+    ) {
+      closePopup();
+    }
+  });
+}
+
+export function initSignOutPopup() {
+  const popup = document.querySelector('.sign-out-popup');
+  const openBtns = document.querySelectorAll('[data-open-sign-out-popup]');
+  const closeBtn = document.querySelector('.sign-out-popup__close');
+  const cancelBtn = document.querySelector('[data-sign-out-dismiss]');
+  const confirmBtn = document.getElementById('sign-out-popup-confirm');
+
+  if (!popup || !openBtns.length) return;
+
+  let lastFocusedElement = null;
+  const focusableElements =
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+  function getFocusableElements() {
+    return Array.from(popup.querySelectorAll(focusableElements)).filter(
+      (el) => !el.hasAttribute('disabled') && !el.hasAttribute('aria-hidden'),
+    );
+  }
+
+  function trapFocus(e) {
+    if (e.key !== 'Tab') return;
+    const focusableEls = getFocusableElements();
+    const firstFocusable = focusableEls[0];
+    const lastFocusable = focusableEls[focusableEls.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === firstFocusable) {
+        e.preventDefault();
+        lastFocusable?.focus();
+      }
+    } else if (document.activeElement === lastFocusable) {
+      e.preventDefault();
+      firstFocusable?.focus();
+    }
+  }
+
+  function removeBodyModalOpenIfIdle() {
+    const contactOpen = document
+      .querySelector('.contact-modal')
+      ?.classList.contains(CONTACT_MODAL_OPEN_CLASS);
+    if (!contactOpen) {
+      document.body.classList.remove(BODY_MODAL_OPEN_CLASS);
+    }
+  }
+
+  function openPopup(e) {
+    lastFocusedElement = e?.currentTarget || document.activeElement;
+    popup.classList.add(SIGN_OUT_POPUP_OPEN_CLASS);
+    popup.setAttribute('aria-hidden', 'false');
+    openBtns.forEach((btn) => btn.setAttribute('aria-expanded', 'true'));
+    document.body.classList.add(BODY_MODAL_OPEN_CLASS);
+    setTimeout(() => {
+      closeBtn?.focus();
+    }, 0);
+    popup.addEventListener('keydown', trapFocus);
+  }
+
+  function closePopup() {
+    if (closeBtn && document.activeElement === closeBtn) {
+      closeBtn.blur();
+    }
+    popup.classList.remove(SIGN_OUT_POPUP_OPEN_CLASS);
+    popup.setAttribute('aria-hidden', 'true');
+    openBtns.forEach((btn) => btn.setAttribute('aria-expanded', 'false'));
+    removeBodyModalOpenIfIdle();
+    popup.removeEventListener('keydown', trapFocus);
+    if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+      setTimeout(() => lastFocusedElement.focus(), 0);
+    }
+  }
+
+  function confirmSignOut() {
+    const href = popup.dataset.signOutRedirect?.trim() || 'login.html';
+    window.location.href = href;
+  }
+
+  openBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openPopup(e);
+    });
+  });
+
+  closeBtn?.addEventListener('click', closePopup);
+  cancelBtn?.addEventListener('click', closePopup);
+
+  confirmBtn?.addEventListener('click', () => {
+    confirmSignOut();
+  });
+
+  popup.addEventListener('click', (e) => {
+    if (e.target === popup) {
+      closePopup();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (
+      e.key === 'Escape' &&
+      popup.classList.contains(SIGN_OUT_POPUP_OPEN_CLASS)
     ) {
       closePopup();
     }
