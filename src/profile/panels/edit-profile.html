@@ -1,6 +1,41 @@
-<div class="profile-panel">
-    <div class="profile-panel__inner">
-        <h2 class="profile-panel__title">Edit Profile</h2>
-        <p class="profile-panel__text">Update your name, email, and preferences here.</p>
+<div class="edit-profile">
+    <div class="edit-profile__inner">
+        <h2 class="edit-profile__title">Account Info</h2>
+        <form action="#" class="edit-profile__form sell__form" novalidate>
+            <div class="edit-profile__form-row">
+                <label class="edit-profile__form-label" for="edit-profile-first-name">First Name
+                    <input type="text" id="edit-profile-first-name" name="edit-profile-first-name"
+                        placeholder="Enter your first name" autocomplete="given-name">
+                </label>
+                <label class="edit-profile__form-label" for="edit-profile-last-name">Last Name
+                    <input type="text" id="edit-profile-last-name" name="edit-profile-last-name"
+                        placeholder="Enter your last name" autocomplete="family-name">
+                </label>
+            </div>
+            <div class="edit-profile__form-row">
+                <label class="edit-profile__form-label" for="edit-profile-email">Email
+                    <input type="email" id="edit-profile-email" name="edit-profile-email"
+                        placeholder="Enter your email" autocomplete="email">
+                </label>
+            </div>
+            <div class="edit-profile__form-row">
+                <label class="edit-profile__form-label" for="edit-profile-phone">Phone
+                    <input type="tel" id="edit-profile-phone" name="edit-profile-phone" placeholder="Phone Number"
+                        autocomplete="tel" required>
+                </label>
+            </div>
+            <div class="edit-profile__form-row">
+                <label class="edit-profile__form-label" for="edit-profile-password">Password
+                    <input type="password" id="edit-profile-password" name="edit-profile-password"
+                        placeholder="Password" autocomplete="new-password" required>
+                </label>
+                <label class="edit-profile__form-label" for="edit-profile-password-confirm">Confirm Password
+                    <input type="password" id="edit-profile-password-confirm" name="edit-profile-password-confirm"
+                        placeholder="Confirm Password" autocomplete="new-password" required>
+                </label>
+            </div>
+            <!-- TODO: change to submit button -->
+            <button type="button" class="edit-profile__form-submit btn btn_primary">Update Profile</button>
+        </form>
     </div>
 </div>

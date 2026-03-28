@@ -1,0 +1,51 @@
+.edit-profile {
+  max-width: 830px;
+  width: 100%;
+  margin-left: auto;
+
+  &__title {
+    @include adaptive-value('font-size', 24, 20, 1);
+    font-weight: 600;
+    color: map-get($brand, 500);
+    letter-spacing: -0.02em;
+    @include px-to-percent-line-height(24px, 20px);
+    margin-bottom: 24px;
+
+    @include media('<tablet') {
+      text-transform: none;
+    }
+  }
+
+  &__form {
+    gap: 24px;
+
+    @include media('<tablet') {
+      gap: 16px;
+    }
+
+    &-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+
+      @include media('<tablet') {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+    }
+
+    &-label {
+      width: 100%;
+    }
+
+    &-submit {
+      margin-top: 16px;
+
+      @include media('<tablet') {
+        margin-top: 24px;
+      }
+    }
+  }
+}
