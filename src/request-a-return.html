@@ -13,7 +13,7 @@
                     <h1 class="request-return__title">Request a return</h1>
                     <p class="request-return__description">We’re sorry your order didn’t work out! Please fill out the form
                         below so we can process your return quickly.</p>
-                    <form class="request-return__form" action="#" method="post" novalidate>
+                    <form id="request-return-form" class="request-return__form" action="#" method="post" novalidate>
                         <fieldset class="request-return__fieldset">
                             <legend class="request-return__legend">Reason for return</legend>
                             <div class="request-return__radios">
@@ -60,6 +60,7 @@
         </section>
     </main>
     {{> contact-modal }}
+    {{> return-request-success-popup }}
     {{> mobile-menu }}
     {{> footer }}
     <script type="module" src="/js/main.js"></script>

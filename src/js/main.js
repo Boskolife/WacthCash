@@ -7,7 +7,12 @@ import 'swiper/css/thumbs';
 import 'intl-tel-input/build/css/intlTelInput.css';
 
 // Modules
-import { initContactModal, initForgotPasswordPopup, initMobileMenu } from './modules/modals.js';
+import {
+  initContactModal,
+  initForgotPasswordPopup,
+  initReturnRequestSuccessPopup,
+  initMobileMenu,
+} from './modules/modals.js';
 import {
   initVideoControls,
   removeVideoControls,
@@ -50,6 +55,7 @@ import {
 initMobileMenu();
 initContactModal();
 initForgotPasswordPopup();
+initReturnRequestSuccessPopup();
 updateCurrentYear();
 removeVideoControls();
 initResponsiveVideoSources();
