@@ -26,66 +26,66 @@
     @include adaptive-value('margin-bottom', 40, 12, 1);
   }
 
-  &__video {
-    border-radius: 24px;
-    overflow: hidden;
-    position: relative;
-    @include adaptive-value('margin-bottom', 40, 24, 1);
-    width: auto;
-    height: auto;
-    aspect-ratio: 16 / 9;
+  &__content {
+    display: grid;
+    align-items: stretch;
+    grid-template-columns: auto auto;
+    gap: 40px;
+    @include adaptive-value('padding', 40, 24, 1);
+    background:
+      url('/images/leather.png') center / cover no-repeat,
+      map-get($brand, 500);
+    border-radius: 40px;
+    @include adaptive-value('margin-bottom', 60, 80, 1);
 
-    @include media('<tablet') {
-      aspect-ratio: 2 / 3;
+    @include media('<desktop') {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      margin: 0 auto 80px auto;
+      gap: 16px;
     }
 
-    video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      
-      @include media ("<tablet") {
-        object-fit: cover;
-      }
+    @include media ("<tablet") {
+      padding: 24px 16px;
     }
   }
 
-  &__btn {
+  &__left-col {
+    max-width: 480px;
+    width: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 6px solid #a17c36;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    border: none;
-    background-color: map-get($brand, 500);
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
-    position: absolute;
-    border-radius: 50%;
 
-    &.play {
-      top: 16px;
-      left: 16px;
+    @include media('<desktop') {
+      max-height: 480px;
+      max-width: 530px;
     }
+  }
 
-    &.mute {
-      top: 16px;
-      right: 16px;
-    }
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    flex: 1 1 auto;
 
     img {
-      width: 24px;
-      height: 24px;
-      object-fit: contain;
-
-      &.is-hidden {
-        display: none;
-      }
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: bottom;
     }
+  }
+
+  &__right-col {
+    max-width: 530px;
+    width: 100%;
+    height: max-content;
+    margin: auto;
+    @include adaptive-value('padding', 40, 20, 1);
+    background-color: map-get($neutral, 100);
+    @include adaptive-value('border-radius', 32, 20, 1);
   }
 
   &__steps {

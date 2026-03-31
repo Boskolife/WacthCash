@@ -3,6 +3,7 @@
   overflow: hidden;
 
   &.social-media {
+    margin-top: 16px;
     background:
       url('/images/leather.png') center / cover no-repeat,
       map-get($brand, 500);

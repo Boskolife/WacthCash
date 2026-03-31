@@ -4,21 +4,109 @@
             <h2 class="sell-my-watch-number-one__title">The #1 Watch Buyers in Canada</h2>
             <p class="sell-my-watch-number-one__text">Safe, Quick & Hassle Free Transactions <br> Guaranteed!</p>
         </div>
-        <div class="sell-my-watch-number-one__video" data-video-controls>
-            <video playsinline autoplay muted loop
-                aria-label="WatchCash founder introduction">
-                <source src="/videos/sell-my-watch.mp4" type="video/mp4">
-                <source src="/videos/sell-my-watch-mob.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <button class="sell-my-watch-number-one__btn play" type="button" aria-label="Pause video">
-                <img src="/icons/pause.svg" alt="Pause" width="24" height="24" class="pause-icon">
-                <img src="/icons/play.svg" alt="Play" width="24" height="24" class="play-icon is-hidden">
-            </button>
-            <button class="sell-my-watch-number-one__btn mute" type="button" aria-label="Unmute video">
-                <img src="/icons/mute.svg" alt="Mute" width="24" height="24" class="mute-icon is-hidden">
-                <img src="/icons/unmute.svg" alt="Unmute" width="24" height="24" class="unmute-icon">
-            </button>
+        <div class="sell-my-watch-number-one__content">
+            <div class="sell-my-watch-number-one__left-col">
+                {{{picture "/images/sell-my-watch-number-one-img.png" alt="Sell image"
+                class="sell-my-watch-number-one__img" width="480" height="890"
+                sources=(array (object media="(max-width: 480px)" srcset="/images/sell-my-watch-number-one-img-mob.png"))
+                }}}
+            </div>
+            <div class="sell-my-watch-number-one__right-col">
+                <div class="sell-my-watch-number-one__form-wrapper">
+                    <form class="sell-my-watch-number-one__form sell__form" novalidate>
+                        <label for="sell-form-email">Email address
+                            <input type="email" id="sell-form-email" name="sell-form-email"
+                                placeholder="Enter your email address" autocomplete="email" required>
+                            <span class="form-error" aria-live="polite"></span>
+                        </label>
+                        <label for="sell-form-brand">Brand Name
+                            <input type="text" id="sell-form-brand" name="sell-form-brand"
+                                placeholder="Enter your brand name" autocomplete="organization" required>
+                            <span class="form-error" aria-live="polite"></span>
+                        </label>
+                        <div class="sell__form-extra" data-sell-form-extra>
+                            <div class="sell__input-wrapper">
+                                <label for="sell-form-first-name">First Name
+                                    <input type="text" id="sell-form-first-name" name="sell-form-first-name"
+                                        placeholder="Enter your first name" autocomplete="given-name" required>
+                                    <span class="form-error" aria-live="polite"></span>
+                                </label>
+                                <label for="sell-form-phone">Phone number
+                                    <input type="tel" id="sell-form-phone" name="sell-form-phone"
+                                        placeholder="Phone Number" autocomplete="tel" required>
+                                    <span class="form-error" aria-live="polite"></span>
+                                </label>
+                            </div>
+                            <label for="sell-form-box-and-papers">Do you have Original Box and Papers?
+                                <div class="custom-select" data-custom-select>
+                                    <select name="sell-form-box-and-papers" id="sell-form-box-and-papers"
+                                        aria-label="Do you have Original Box and Papers?" required>
+                                        <option value="">Please select...</option>
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                        <option value="i-dont-know">I don't know</option>
+                                        <option value="i-dont-have-it">I don't have it</option>
+                                    </select>
+                                    <button type="button" class="custom-select__button" aria-haspopup="listbox"
+                                        aria-expanded="false" aria-labelledby="sell-form-box-and-papers">
+                                        <span class="custom-select__selected">Please select...</span>
+                                        <svg class="custom-select__arrow" width="20" height="20" viewBox="0 0 20 20"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </button>
+                                    <ul class="custom-select__dropdown" role="listbox"
+                                        aria-labelledby="sell-form-box-and-papers">
+                                        <li class="custom-select__option" role="option" data-value="" tabindex="-1"
+                                            aria-selected="false">Please select...</li>
+                                        <li class="custom-select__option" role="option" data-value="yes" tabindex="-1"
+                                            aria-selected="false">Yes</li>
+                                        <li class="custom-select__option" role="option" data-value="no" tabindex="-1"
+                                            aria-selected="false">No</li>
+                                        <li class="custom-select__option" role="option" data-value="i-dont-know"
+                                            tabindex="-1" aria-selected="false">I don't know</li>
+                                        <li class="custom-select__option" role="option" data-value="i-dont-have-it"
+                                            tabindex="-1" aria-selected="false">I don't have it</li>
+                                    </ul>
+                                </div>
+                                <span class="form-error" aria-live="polite"></span>
+                            </label>
+                            <div class="drag-and-drop-wrapper" data-drag-drop-wrapper>
+                                <label class="drag-and-drop-label">
+                                    <span class="drag-and-drop-label-text">Snap your watch</span>
+                                    <input type="file" id="sell-form-watch" name="sell-form-watch"
+                                        class="drag-and-drop-input" accept="image/*" multiple
+                                        aria-describedby="sell-form-watch-hint" required>
+                                    <div class="drag-area" data-drag-area role="button" tabindex="0"
+                                        aria-label="Choose photos or drag and drop">
+                                        <div class="drag-area__inner">
+                                            <img class="drag-area__icon" src="/icons/document-upload.svg" alt=""
+                                                aria-hidden="true">
+                                            <span class="drag-area__title">Choose a file or drag & drop it here</span>
+                                            <p class="drag-area__description">PNG, GIF, WEBP, JPG. Up to 1Gb.</p>
+                                            <p class="drag-area__files" data-drag-files aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                </label>
+                                <span class="form-error" aria-live="polite"></span>
+                                <p id="sell-form-watch-hint" class="drag-and-drop-text">Upload as many photos of your
+                                    watch
+                                    as
+                                    possible (front view works best).</p>
+                            </div>
+                            <label for="sell-form-additional-information">
+                                Additional Information (Optional)
+                                <textarea name="sell-form-additional-information" id="sell-form-additional-information"
+                                    placeholder="Enter your additional information"></textarea>
+                            </label>
+                        </div>
+                        <button type="submit" class="sell__form-button btn btn_primary">
+                            Free Quote
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
         <h2 class="sell-my-watch-number-one__title">sell your used luxury watch</h2>
         <div class="sell-my-watch-number-one__steps">
