@@ -6,6 +6,8 @@ import 'swiper/css/thumbs';
 // intl-tel-input styles
 import 'intl-tel-input/build/css/intlTelInput.css';
 
+import './modules/wow.min.js';
+
 // Modules
 import {
   initContactModal,
@@ -86,3 +88,12 @@ initThanksPaymentCopyOrderId();
 initCopyToClipboard();
 initShippingTrackingDropdowns();
 initProfileSidebarNav();
+
+function initWowAnimations() {
+  const WOW = globalThis.WOW?.default ?? globalThis.WOW;
+  if (typeof WOW === 'function') {
+    new WOW().init();
+  }
+}
+
+initWowAnimations();
